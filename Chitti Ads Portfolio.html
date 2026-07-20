@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jayanth Prakash R Ads Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bp-navy:#101f38;
+    --bp-navy-deep:#0a1526;
+    --bp-blue:#4a7fc4;
+    --bp-blue-soft:#6f9bd6;
+    --bp-line:#25406a;
+    --chalk:#eef1ea;
+    --muted:#93a8c9;
+    --amber:#e8a33d;
+    --amber-dim:#a97a3e;
+    --radius:2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:linear-gradient(160deg, #0f1c2e 0%, #14263d 45%, #0a1526 100%);
+    background-attachment: fixed;
+    color:var(--chalk);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.5;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+
+  nav{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:22px 0; border-bottom:1px solid var(--bp-line);
+  }
+  .logo{
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:1.15rem;
+    letter-spacing:0.5px; display:flex; align-items:center; gap:10px;
+  }
+  .logo .mark{
+    width:12px; height:12px; border:2px solid var(--amber); transform:rotate(45deg);
+  }
+  .nav-count{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
+    color:var(--amber); border:1px solid var(--bp-line);
+    padding:9px 16px; border-radius:var(--radius); letter-spacing:0.3px;
+  }
+
+  .hero{
+    padding:72px 0 56px; border-bottom:1px solid var(--bp-line);
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif; font-weight:600;
+    font-size:clamp(2rem, 4vw, 2.9rem); line-height:1.15; margin-bottom:20px;
+  }
+  .hero p{color:var(--muted); font-size:1.02rem; max-width:52ch; margin-bottom:28px;}
+  .channel-name{color:var(--amber) !important; font-family:'IBM Plex Mono', monospace; font-size:0.9rem; letter-spacing:0.4px; margin-bottom:8px !important;}
+  .role-title{color:var(--bp-blue-soft) !important; font-family:'IBM Plex Mono', monospace; font-size:0.85rem; letter-spacing:0.4px; margin-bottom:6px !important;}
+
+  .featured-section{padding:40px 0 8px;}
+  .featured-heading{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.3rem;
+    margin-bottom:4px; display:flex; align-items:center; gap:10px;
+  }
+  .featured-heading .mark{
+    width:9px; height:9px; border:2px solid var(--amber); transform:rotate(45deg); flex:none;
+  }
+  .featured-sub{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--muted);
+    margin-bottom:20px; display:block;
+  }
+  .featured-videos-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+    gap:20px; margin-bottom:12px;
+  }
+  .featured-card{
+    position:relative; border:1px solid var(--bp-line); background:rgba(74,127,196,0.04);
+    text-decoration:none; display:block; overflow:hidden; border-radius:var(--radius);
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .featured-card:hover{border-color:var(--bp-blue-soft); transform:translateY(-2px);}
+  .featured-card .thumb{
+    position:relative; background:linear-gradient(135deg, var(--bp-navy-deep), var(--bp-line));
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .featured-videos-grid .featured-card .thumb{aspect-ratio:16/9;}
+  .featured-card .thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+  .featured-card .play{
+    position:absolute; width:44px; height:44px; border:1px solid var(--amber); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; color:var(--amber);
+    font-size:0.75rem; background:rgba(10,21,38,0.55); z-index:1;
+  }
+  .featured-title{
+    padding:10px 12px; font-size:0.85rem; font-weight:500; color:var(--chalk);
+    line-height:1.35; border-top:1px solid var(--bp-line);
+  }
+  .insta-callout{
+    display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+    border:1px solid var(--bp-line); background:rgba(232,163,61,0.06);
+    padding:16px 20px; border-radius:var(--radius); margin:28px 0 12px;
+  }
+  .insta-callout p{
+    color:var(--chalk); font-size:0.92rem; margin:0; flex:1; min-width:220px;
+  }
+  .insta-callout a{
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem;
+    color:var(--bp-navy); background:var(--amber);
+    padding:9px 16px; border-radius:var(--radius); text-decoration:none;
+    letter-spacing:0.3px; font-weight:500; white-space:nowrap;
+  }
+
+  .filter-section{padding:40px 0 8px;}
+  .filter-label{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--muted);
+    text-transform:uppercase; letter-spacing:1px; margin-bottom:14px; display:block;
+  }
+  .filters{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px;}
+  .filter-btn{
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem;
+    background:transparent; color:var(--muted); border:1px solid var(--bp-line);
+    padding:8px 14px; border-radius:var(--radius); cursor:pointer;
+    transition:all .15s ease;
+  }
+  .filter-btn:hover{border-color:var(--bp-blue-soft); color:var(--chalk);}
+  .filter-btn.active{
+    background:var(--amber); border-color:var(--amber); color:var(--bp-navy-deep); font-weight:500;
+  }
+
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+    gap:22px; padding:32px 0 64px;
+  }
+  .card{
+    position:relative; border:1px solid var(--bp-line); background:rgba(74,127,196,0.04);
+    transition:border-color .15s ease, transform .15s ease;
+    text-decoration:none; display:flex; flex-direction:column;
+  }
+  .card:hover{border-color:var(--bp-blue-soft); transform:translateY(-2px);}
+  .card::before, .card::after,
+  .card .thumb::before, .card .thumb::after{
+    content:""; position:absolute; width:10px; height:10px;
+    border-color:var(--amber); opacity:0; transition:opacity .15s ease;
+  }
+  .card:hover::before, .card:hover::after,
+  .card:hover .thumb::before, .card:hover .thumb::after{opacity:1;}
+  .card::before{top:-1px; left:-1px; border-top:2px solid; border-left:2px solid;}
+  .card::after{top:-1px; right:-1px; border-top:2px solid; border-right:2px solid;}
+  .card .thumb::before{bottom:-1px; left:-1px; border-bottom:2px solid; border-left:2px solid;}
+  .card .thumb::after{bottom:-1px; right:-1px; border-bottom:2px solid; border-right:2px solid;}
+
+  .thumb{
+    position:relative; aspect-ratio:16/9; background:linear-gradient(135deg, var(--bp-navy-deep), var(--bp-line));
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+  .thumb .play{
+    width:44px; height:44px; border:1px solid var(--muted); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; color:var(--muted);
+    font-size:0.7rem; z-index:1;
+  }
+  .thumb .grid-overlay{
+    position:absolute; inset:0; opacity:0.25;
+    background-image:linear-gradient(var(--bp-blue) 1px, transparent 1px), linear-gradient(90deg, var(--bp-blue) 1px, transparent 1px);
+    background-size:18px 18px;
+  }
+  .card-body{padding:14px 16px 16px; display:flex; flex-direction:column; gap:8px; flex:1;}
+  .card-tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.66rem; color:var(--amber);
+    text-transform:uppercase; letter-spacing:0.6px;
+  }
+  .card-title{font-size:0.92rem; font-weight:500; color:var(--chalk); line-height:1.35;}
+  .card-meta{
+    margin-top:auto; font-family:'IBM Plex Mono', monospace; font-size:0.7rem;
+    color:var(--muted); display:flex; justify-content:flex-end; padding-top:6px;
+  }
+
+  footer{
+    text-align:center; padding:24px 0 40px; font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem; color:var(--bp-line);
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <div class="logo"><span class="mark"></span>Jayanth Prakash R</div>
+    <span class="nav-count">44 Ads</span>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <h1>Jayanth Prakash R</h1>
+      <p class="channel-name">Creative Ads &amp; Campaigns</p>
+      <p>A collection of promotional and campaign videos produced across workshops, programs and brand initiatives from teacher empowerment drives to JEE prep, AI-led storytelling and creative brand spots.</p>
+    </div>
+  </section>
+
+  <section class="featured-section">
+    <div class="featured-heading"><span class="mark"></span>Featured Campaigns</div>
+    <span class="featured-sub">// A handpicked selection of standout ad work</span>
+    <div class="featured-videos-grid">
+      <a class="featured-card" href="https://youtu.be/4feicDlqSyY" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/4feicDlqSyY/hqdefault.jpg" alt="Featured ad"><div class="play">▶</div></div>
+        <div class="featured-title">AI Based Ads Cut 1</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/y2uynF5-jFA" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/y2uynF5-jFA/hqdefault.jpg" alt="Featured ad"><div class="play">▶</div></div>
+        <div class="featured-title">Creative Ad Cut 1</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/luLi7XDXOqM" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/luLi7XDXOqM/hqdefault.jpg" alt="Featured ad"><div class="play">▶</div></div>
+        <div class="featured-title">Creative Ad Cut 5</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/E69qLGFbFUY" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/E69qLGFbFUY/hqdefault.jpg" alt="Featured ad"><div class="play">▶</div></div>
+        <div class="featured-title">Big Bang</div>
+      </a>
+    </div>
+    <div class="insta-callout">
+      <p>Additional creative ad work has also been published on Instagram.</p>
+      <a href="https://www.instagram.com/reel/DRGzSNfk55i/?igsh=aTkyM2Zkd2ZpY2F4" target="_blank">View on Instagram →</a>
+    </div>
+  </section>
+
+  <section class="featured-section">
+    <div class="featured-heading"><span class="mark"></span>All Ads</div>
+    <span class="featured-sub">// Full library, filterable by campaign</span>
+  </section>
+
+  <section class="filter-section">
+    <span class="filter-label">Filter by campaign</span>
+    <div class="filters" id="filters"></div>
+  </section>
+
+  <section class="grid" id="grid"></section>
+
+<footer>JAYANTH PRAKASH R ADS PORTFOLIO</footer>
+</div>
+
+<script>
+const CATEGORIES = ["All", "AI Based Ads", "JEE Workshop Ad", "Teacher Empowerment Ad", "Scientific Parenting Ads", "Chitti", "Big Bang", "Creative Ad", "Mr GK", "Innovators League", "Rakesh Ad", "Aeromdelking", "Ads Telugu", "CA Workshop Ad", "Organic Ad Telugu", "Telugu Ad", "Cube Satellite Ad", "Dog Vs Crawling Bot Ad"];
+
+const VIDEOS = [
+{ id: '4feicDlqSyY', title: 'AI Based Ads Cut 1', category: 'AI Based Ads' },
+  { id: 'P9TSTAzT3SY', title: 'AI Based Ads Cut 2', category: 'AI Based Ads' },
+  { id: 'b_ubmhZ91bs', title: 'AI Based Ads Cut 3', category: 'AI Based Ads' },
+  { id: '64wdJ8kwUWE', title: 'AI Based Ads Cut 4', category: 'AI Based Ads' },
+  { id: 'nak5PCbDhVc', title: 'AI Based Ads Cut 5', category: 'AI Based Ads' },
+  { id: 'osPw94_oo0U', title: 'AI Based Ads Cut 6', category: 'AI Based Ads' },
+  { id: 'CWaTzyG_x-A', title: 'AI Based Ads Cut 7', category: 'AI Based Ads' },
+  { id: 'gIuxuu5zPrk', title: 'AI Based Ads Cut 8', category: 'AI Based Ads' },
+  { id: '5eAgx5f4-F0', title: 'AI Based Ads Cut 9', category: 'AI Based Ads' },
+  { id: 'm0wfKk8J-hQ', title: 'JEE Workshop Ad Cut 7', category: 'JEE Workshop Ad' },
+  { id: 'MsVo_3hsxY0', title: 'Teacher Empowerment Ad Cut 1', category: 'Teacher Empowerment Ad' },
+  { id: 'AkCqKifhwbU', title: 'Teacher Empowerment Ad Cut 2', category: 'Teacher Empowerment Ad' },
+  { id: 'ZcjeRBD73c4', title: 'Teacher Empowerment Ad Cut 3', category: 'Teacher Empowerment Ad' },
+  { id: 'dWDI_LSD9qM', title: 'Teacher Empowerment Ad Cut 4', category: 'Teacher Empowerment Ad' },
+  { id: 'vxgoLfzu6pE', title: 'Teacher Empowerment Ad Cut 5', category: 'Teacher Empowerment Ad' },
+  { id: 'OaebiIFcTGk', title: 'Teacher Empowerment Ad Cut 6', category: 'Teacher Empowerment Ad' },
+  { id: 'wMG9LTQk_SI', title: 'JEE Workshop Ad Cut 1', category: 'JEE Workshop Ad' },
+  { id: 'GvG25slVVDw', title: 'JEE Workshop Ad Cut 2', category: 'JEE Workshop Ad' },
+  { id: 'LpjTwyKtxzc', title: 'JEE Workshop Ad Cut 3', category: 'JEE Workshop Ad' },
+  { id: 'KKh9R4uUInQ', title: 'JEE Workshop Ad Cut 4', category: 'JEE Workshop Ad' },
+  { id: 'rNZeeVv_Hpc', title: 'JEE Workshop Ad Cut 5', category: 'JEE Workshop Ad' },
+  { id: '0bWW7u0mHvY', title: 'JEE Workshop Ad Cut 6', category: 'JEE Workshop Ad' },
+  { id: 'vC5HWPZ1DxI', title: 'Scientific Parenting Ads', category: 'Scientific Parenting Ads' },
+  { id: 'gnwt9D8a0Jc', title: 'Chitti Cut 1', category: 'Chitti' },
+  { id: 'iCckpFUg8aw', title: 'Chitti Cut 2', category: 'Chitti' },
+  { id: 'xxL7gGYwPCg', title: 'Chitti Cut 3', category: 'Chitti' },
+  { id: '57oOrarFcUk', title: 'Chitti Cut 4', category: 'Chitti' },
+  { id: 'dgDBbZVBzUU', title: 'Chitti Cut 5', category: 'Chitti' },
+  { id: 'E69qLGFbFUY', title: 'Big Bang', category: 'Big Bang' },
+  { id: 'y2uynF5-jFA', title: 'Creative Ad Cut 1', category: 'Creative Ad' },
+  { id: 'sGmhsp0Le1w', title: 'Creative Ad Cut 2', category: 'Creative Ad' },
+  { id: 'PnI_4DqDnuU', title: 'Creative Ad Cut 3', category: 'Creative Ad' },
+  { id: 'FZAoISuIJoA', title: 'Creative Ad Cut 4', category: 'Creative Ad' },
+  { id: 'luLi7XDXOqM', title: 'Creative Ad Cut 5', category: 'Creative Ad' },
+  { id: 'v68BEjWzork', title: 'Mr GK', category: 'Mr GK' },
+  { id: 'Z0YATO2p4AM', title: 'Innovators League', category: 'Innovators League' },
+  { id: 'WgdS7wn-L6Y', title: 'Rakesh Ad', category: 'Rakesh Ad' },
+  { id: 'q2pqtWMT9cc', title: 'Aeromdelking', category: 'Aeromdelking' },
+  { id: '2iXVSNXJLoU', title: 'Ads Telugu', category: 'Ads Telugu' },
+  { id: '5Y9esPHGeek', title: 'CA Workshop Ad', category: 'CA Workshop Ad' },
+  { id: 'EMOgm4GpVQw', title: 'Organic Ad Telugu', category: 'Organic Ad Telugu' },
+  { id: '8TuJ3DM66Ac', title: 'Telugu Ad', category: 'Telugu Ad' },
+  { id: '1R_8k_O1jtA', title: 'Cube Satellite Ad', category: 'Cube Satellite Ad' },
+  { id: '1jjFC0WoW5c', title: 'Dog Vs Crawling Bot Ad', category: 'Dog Vs Crawling Bot Ad' },
+];
+
+function thumbUrl(id){
+  return id ? `https://i.ytimg.com/vi/${id}/hqdefault.jpg` : null;
+}
+
+const filtersEl = document.getElementById('filters');
+const gridEl = document.getElementById('grid');
+let active = "All";
+
+function renderFilters(){
+  filtersEl.innerHTML = CATEGORIES.map(c => {
+    const count = c === "All" ? VIDEOS.length : VIDEOS.filter(v => v.category === c).length;
+    return `<button class="filter-btn ${c===active ? 'active':''}" data-cat="${c}">${c} (${count})</button>`;
+  }).join('');
+  filtersEl.querySelectorAll('.filter-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      active = btn.dataset.cat;
+      renderFilters();
+      renderGrid();
+    });
+  });
+}
+
+function renderGrid(){
+  const list = VIDEOS.filter(v => active==="All" || v.category===active);
+  gridEl.innerHTML = list.map(v => {
+    const thumb = thumbUrl(v.id);
+    return `
+    <a class="card" href="https://www.youtube.com/watch?v=${v.id}" target="_blank">
+      <div class="thumb">
+        ${thumb ? `<img src="${thumb}" alt="${v.title}">` : `<div class="grid-overlay"></div><div class="play">▶</div>`}
+      </div>
+      <div class="card-body">
+        <span class="card-tag">${v.category}</span>
+        <div class="card-title">${v.title}</div>
+        <div class="card-meta"><span>Watch →</span></div>
+      </div>
+    </a>`;
+  }).join('');
+}
+
+renderFilters();
+renderGrid();
+</script>
+
+</body>
+</html>

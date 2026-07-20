@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jayanth Prakash R — Portfolio</title>
+<meta name="description" content="Jayanth Prakash R — Content Supervisor & Channel Manager at Chitti Tamil. Portfolio of science and engineering explainer shorts.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bp-navy:#101f38;
+    --bp-navy-deep:#0a1526;
+    --bp-blue:#4a7fc4;
+    --bp-blue-soft:#6f9bd6;
+    --bp-line:#25406a;
+    --chalk:#eef1ea;
+    --muted:#93a8c9;
+    --amber:#e8a33d;
+    --amber-dim:#a97a3e;
+    --radius:2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:linear-gradient(160deg, #0f1c2e 0%, #14263d 45%, #0a1526 100%);
+    background-attachment: fixed;
+    color:var(--chalk);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.5;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+
+  /* ---- NAV ---- */
+  nav{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:22px 0; border-bottom:1px solid var(--bp-line);
+  }
+  .logo{
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:1.15rem;
+    letter-spacing:0.5px; display:flex; align-items:center; gap:10px;
+  }
+  .logo .mark{
+    width:12px; height:12px; border:2px solid var(--amber); transform:rotate(45deg);
+  }
+  .nav-cta{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
+    color:var(--bp-navy); background:var(--amber);
+    padding:9px 16px; border-radius:var(--radius); text-decoration:none;
+    letter-spacing:0.3px; font-weight:500;
+    transition:opacity .15s ease;
+  }
+  .nav-cta:hover{opacity:0.85;}
+  .nav-count{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
+    color:var(--amber); border:1px solid var(--bp-line);
+    padding:9px 16px; border-radius:var(--radius); letter-spacing:0.3px;
+  }
+
+  /* ---- HERO ---- */
+  .hero{
+    padding:72px 0 56px; border-bottom:1px solid var(--bp-line);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--amber);
+    letter-spacing:1.5px; text-transform:uppercase; margin-bottom:18px; display:block;
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif; font-weight:600;
+    font-size:clamp(2rem, 4vw, 2.9rem); line-height:1.15; margin-bottom:20px;
+  }
+  h1 em{color:var(--bp-blue-soft); font-style:normal; border-bottom:2px dashed var(--amber-dim);}
+  .hero p{color:var(--muted); font-size:1.02rem; max-width:46ch; margin-bottom:28px;}
+  .channel-name{color:var(--amber) !important; font-family:'IBM Plex Mono', monospace; font-size:0.9rem; letter-spacing:0.4px; margin-bottom:8px !important;}
+  .role-title{color:var(--bp-blue-soft) !important; font-family:'IBM Plex Mono', monospace; font-size:0.85rem; letter-spacing:0.4px; margin-bottom:6px !important;}
+  .video-count{color:var(--muted) !important; font-family:'IBM Plex Mono', monospace; font-size:0.8rem; letter-spacing:0.4px; margin-bottom:8px !important;}
+  .stat-row{display:flex; gap:0; border:1px solid var(--bp-line);}
+  .stat{
+    flex:1; padding:14px 16px; border-right:1px solid var(--bp-line);
+  }
+  .stat:last-child{border-right:none;}
+  .stat b{
+    display:block; font-family:'Space Grotesk', sans-serif; font-size:1.3rem; color:var(--chalk);
+  }
+  .stat span{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px;}
+
+  /* ---- SCHEMATIC SVG ---- */
+  .schematic{position:relative;}
+  .schematic svg{width:100%; height:auto;}
+  .schematic .leader-text{
+    font-family:'IBM Plex Mono', monospace; font-size:10.5px; fill:var(--muted);
+  }
+  .schematic .leader-line{stroke:var(--bp-line); stroke-width:1; stroke-dasharray:3 3;}
+  .schematic .glow{stroke:var(--amber); stroke-width:1.4;}
+
+  /* ---- FEATURED SECTIONS ---- */
+  .featured-section{padding:40px 0 8px;}
+  .featured-heading{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.3rem;
+    margin-bottom:4px; display:flex; align-items:center; gap:10px;
+  }
+  .featured-heading .mark{
+    width:9px; height:9px; border:2px solid var(--amber); transform:rotate(45deg); flex:none;
+  }
+  .featured-sub{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--muted);
+    margin-bottom:20px; display:block;
+  }
+  .featured-videos-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+    gap:20px; margin-bottom:12px;
+  }
+  .featured-shorts-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));
+    gap:20px; margin-bottom:12px;
+  }
+  .featured-card{
+    position:relative; border:1px solid var(--bp-line); background:rgba(74,127,196,0.04);
+    text-decoration:none; display:block; overflow:hidden; border-radius:var(--radius);
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .featured-card:hover{border-color:var(--bp-blue-soft); transform:translateY(-2px);}
+  .featured-card .thumb{
+    position:relative; background:linear-gradient(135deg, var(--bp-navy-deep), var(--bp-line));
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .featured-videos-grid .featured-card .thumb{aspect-ratio:16/9;}
+  .featured-shorts-grid .featured-card .thumb{aspect-ratio:9/16;}
+  .featured-card .thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+  .featured-card .play{
+    position:absolute; width:44px; height:44px; border:1px solid var(--amber); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; color:var(--amber);
+    font-size:0.75rem; background:rgba(10,21,38,0.55); z-index:1;
+  }
+  .featured-title{
+    padding:10px 12px 4px; font-size:0.85rem; font-weight:500; color:var(--chalk);
+    line-height:1.35; border-top:1px solid var(--bp-line);
+  }
+  .featured-gloss{
+    padding:0 12px 10px; font-family:'IBM Plex Mono', monospace; font-size:0.7rem;
+    color:var(--muted); font-style:italic;
+  }
+  .insta-callout{
+    display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+    border:1px solid var(--bp-line); background:rgba(232,163,61,0.06);
+    padding:16px 20px; border-radius:var(--radius); margin:28px 0 12px;
+  }
+  .insta-callout p{
+    color:var(--chalk); font-size:0.92rem; margin:0; flex:1; min-width:220px;
+  }
+  .insta-callout a{
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem;
+    color:var(--bp-navy); background:var(--amber);
+    padding:9px 16px; border-radius:var(--radius); text-decoration:none;
+    letter-spacing:0.3px; font-weight:500; white-space:nowrap;
+  }
+
+  /* ---- GRID ---- */
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(190px, 1fr));
+    gap:22px; padding:32px 0 64px;
+  }
+  .card{
+    position:relative; border:1px solid var(--bp-line); background:rgba(74,127,196,0.04);
+    transition:border-color .15s ease, transform .15s ease;
+    text-decoration:none; display:flex; flex-direction:column;
+  }
+  .card:hover{border-color:var(--bp-blue-soft); transform:translateY(-2px);}
+  .card::before, .card::after,
+  .card .thumb::before, .card .thumb::after{
+    content:""; position:absolute; width:10px; height:10px;
+    border-color:var(--amber); opacity:0; transition:opacity .15s ease;
+  }
+  .card:hover::before, .card:hover::after,
+  .card:hover .thumb::before, .card:hover .thumb::after{opacity:1;}
+  .card::before{top:-1px; left:-1px; border-top:2px solid; border-left:2px solid;}
+  .card::after{top:-1px; right:-1px; border-top:2px solid; border-right:2px solid;}
+  .card .thumb::before{bottom:-1px; left:-1px; border-bottom:2px solid; border-left:2px solid;}
+  .card .thumb::after{bottom:-1px; right:-1px; border-bottom:2px solid; border-right:2px solid;}
+
+  .thumb{
+    position:relative; aspect-ratio:16/9; background:linear-gradient(135deg, var(--bp-navy-deep), var(--bp-line));
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+  .thumb .play{
+    width:44px; height:44px; border:1px solid var(--muted); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; color:var(--muted);
+    font-size:0.7rem; z-index:1;
+  }
+  .thumb .grid-overlay{
+    position:absolute; inset:0; opacity:0.25;
+    background-image:linear-gradient(var(--bp-blue) 1px, transparent 1px), linear-gradient(90deg, var(--bp-blue) 1px, transparent 1px);
+    background-size:18px 18px;
+  }
+  .short-thumb{aspect-ratio:9/16;}
+  .card-body{padding:14px 16px 16px; display:flex; flex-direction:column; gap:8px; flex:1;}
+  .card-tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.66rem; color:var(--amber);
+    text-transform:uppercase; letter-spacing:0.6px;
+  }
+  .card-title{font-size:0.92rem; font-weight:500; color:var(--chalk); line-height:1.35;}
+  .card-meta{
+    margin-top:auto; font-family:'IBM Plex Mono', monospace; font-size:0.7rem;
+    color:var(--muted); display:flex; justify-content:flex-end; padding-top:6px;
+  }
+
+  /* ---- FOOTER CTA ---- */
+  .footer-cta{
+    border-top:1px solid var(--bp-line); padding:56px 0; text-align:center;
+  }
+  .footer-cta h2{font-family:'Space Grotesk', sans-serif; font-size:1.5rem; margin-bottom:12px;}
+  .footer-cta p{color:var(--muted); margin-bottom:24px;}
+  .big-cta{
+    display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:0.85rem;
+    background:var(--bp-blue); color:var(--chalk); padding:14px 28px;
+    border-radius:var(--radius); text-decoration:none; letter-spacing:0.4px;
+    transition:background .15s ease;
+  }
+  .big-cta:hover{background:var(--bp-blue-soft);}
+  footer{
+    text-align:center; padding:24px 0 40px; font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem; color:var(--bp-line);
+  }
+
+  @media(max-width:820px){
+    .wrap{padding:0 18px;}
+    nav{padding:16px 0; flex-wrap:wrap; gap:10px;}
+    .hero{padding:48px 0 36px;}
+    h1{font-size:1.8rem;}
+    .stat-row{flex-wrap:wrap;}
+    .stat{flex:1 1 50%; border-right:none; border-bottom:1px solid var(--bp-line);}
+    .stat:nth-child(2n){border-right:none;}
+    .featured-videos-grid{grid-template-columns:1fr;}
+    .featured-shorts-grid{grid-template-columns:repeat(auto-fill, minmax(140px, 1fr));}
+    .grid{grid-template-columns:1fr; gap:16px; padding:24px 0 48px;}
+    .insta-callout{flex-direction:column; align-items:flex-start;}
+    .insta-callout a{width:100%; text-align:center;}
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <div class="logo"><span class="mark"></span>Jayanth Prakash R</div>
+    <span class="nav-count">438 Shorts</span>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <h1>Jayanth Prakash R</h1>
+      <p class="role-title">Content Supervisor &amp; Channel Manager</p>
+      <p class="channel-name">Chitti Tamil</p>
+    </div>
+  </section>
+
+  <section class="featured-section">
+    <div class="featured-heading"><span class="mark"></span>High-Impact Content</div>
+    <span class="featured-sub">// Quick-hit science moments with millions of views built for scroll-stopping reach</span>
+    <div class="featured-shorts-grid">
+      <a class="featured-card" href="https://youtube.com/shorts/DvKdbGMzh8k?si=Gsk7tr1fhO7ZJjuN" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/DvKdbGMzh8k/hqdefault.jpg" alt="Featured short"><div class="play">▶</div></div>
+        <div class="featured-title">Implosion Crush the Can | Chitti in the School - 08</div>
+      </a>
+      <a class="featured-card" href="https://youtube.com/shorts/s2_9RgMRwQw?si=JKYiH3jrjRT8ttzP" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/s2_9RgMRwQw/hqdefault.jpg" alt="Featured short"><div class="play">▶</div></div>
+        <div class="featured-title">Chitti at School: Blow Up a Balloon INSIDE a Bottle?! 🎈</div>
+      </a>
+      <a class="featured-card" href="https://youtube.com/shorts/p_rRIMFyNN0?si=EIX-wWQi1cjzxqrw" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/p_rRIMFyNN0/hqdefault.jpg" alt="Featured short"><div class="play">▶</div></div>
+        <div class="featured-title">Futuristic Robot in School 😯| Fun in School | Robotics</div>
+      </a>
+      <a class="featured-card" href="https://youtube.com/shorts/LptE9PKU6Ak?si=_HljvJRtNAyQYeTK" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/LptE9PKU6Ak/hqdefault.jpg" alt="Featured short"><div class="play">▶</div></div>
+        <div class="featured-title">கைய எரிய வைப்போமா?🔥 | Chitti in the School - 05 | Fire in Hand 😱</div>
+      </a>
+      <a class="featured-card" href="https://youtube.com/shorts/B6Tx2lzc3kY?si=ziwa5q7y-ft2bcpc" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/B6Tx2lzc3kY/hqdefault.jpg" alt="Featured short"><div class="play">▶</div></div>
+        <div class="featured-title">Measure LIC building's Height using Trigonometry| Chitti</div>
+      </a>
+      <a class="featured-card" href="https://youtube.com/shorts/f8_LTBn2roc?si=XnYTz1husEtxSu9B" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/f8_LTBn2roc/hqdefault.jpg" alt="Featured short"><div class="play">▶</div></div>
+        <div class="featured-title">Why is this Hanging Near Railway Tracks ?| Chitti</div>
+      </a>
+      <a class="featured-card" href="https://youtube.com/shorts/PGWaP01-sl4?si=FXOJOVIlLrbWeLVv" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/PGWaP01-sl4/hqdefault.jpg" alt="Featured short"><div class="play">▶</div></div>
+        <div class="featured-title">Why Water Lorries Spill Water? | Chitti</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="featured-section">
+    <div class="featured-heading"><span class="mark"></span>Projects I Led</div>
+    <span class="featured-sub">// End to end content showcase</span>
+  </section>
+
+  <section class="grid" id="grid"></section>
+
+<footer>JAYANTH PRAKASH R — PORTFOLIO</footer>
+</div>
+
+<script>
+/* ============================================================
+   HOW TO ADD MORE VIDEOS LATER
+   ------------------------------------------------------------
+   Each entry needs 3 things you can get from YouTube Studio
+   (studio.youtube.com > Content) or by opening each video:
+
+     id       -> the YouTube video ID (the part after "v=" in
+                 the URL, e.g. youtube.com/watch?v=XXXXXXXXXXX)
+     title    -> the video title
+     category -> pick one of the tags below (or add your own —
+                 just also add a button in the CATEGORIES array)
+
+   Thumbnails are pulled automatically from YouTube using the
+   video id, so you never need to upload images yourself:
+     https://i.ytimg.com/vi/<id>/hqdefault.jpg
+
+   Fastest way to add more videos from a future export:
+   1. Go to YouTube Studio > Content, sort/filter as needed.
+   2. Export or copy title + URL for each video into a sheet.
+   3. Paste them into the VIDEOS array below in this exact
+      shape (one object per video). A spreadsheet formula like
+      ="{ id:'"&B2&"', title:'"&A2&"', category:'"&C2&"' },"
+      can generate hundreds of lines from a 3-column sheet in seconds.
+   ============================================================ */
+
+const SHORTS = [
+  { id: 'CdyCAooC6ms', title: 'Why Do Wet Clothes Look Darker? | Chitti', views: 25301 },
+  { id: 'iWFaK6K9h0A', title: 'What are these vessels on Roofs? | Chitti', views: 305838 },
+  { id: '_FAvmBxuYYs', title: 'Chitti STEM Learning App', views: 3380 },
+  { id: 'VMN1I7IP1zk', title: 'Why Does This Ball Suddenly Jump?| Chitti', views: 569339 },
+  { id: 'jrTjdd6au_0', title: 'Unbelievable: DEVICE solves Farmers POWER CUT problem! | Chitti', views: 25281 },
+  { id: 'NgRHhNGFHLA', title: 'Chitti Super Kids - The Sleep Machine | Epi - 2/12', views: 5460 },
+  { id: 'ULqJUNCUjj0', title: 'How Road Signs Glow at Night? | Chitti', views: 15292 },
+  { id: 'PGWaP01-sl4', title: 'Why Water Lorries Spill Water? | Chitti', views: 675220 },
+  { id: '1JeFxeNm-Zo', title: 'Shocking: We Made a Ring Fly Using Electricity| Chitti', views: 945542 },
+  { id: 'fYcYj_pcMUY', title: 'Chitti Super Kids | Epi - 1/12', views: 5522 },
+  { id: 'tl2aS1pN1gA', title: '🍉 (a+b)³ with a Watermelon! | Chitti', views: 26698 },
+  { id: 'veRtrYFA5ec', title: 'கை போதும்... Switch வேண்டாம்! 🤯| Chitti', views: 14026 },
+  { id: 'Gwgyv15d8IQ', title: 'Is Public DRINKING WATER safe ?? | Experiment', views: 70463 },
+  { id: 'llfT4tenSiw', title: 'LIGHT runs with GRAVITY?? | Chitti', views: 41216 },
+  { id: 'wizw2NASdZc', title: 'Can a Teacup SHAPE Save a TRAIN? | Chitti', views: 435611 },
+  { id: 'gd5dykrHG-k', title: 'Can a Charger Save Your Life ?| Chitti', views: 14179 },
+  { id: '6QmAIoySJX4', title: 'Sound transmission with light | Chitti', views: 372469 },
+  { id: 'gffv0LzRGQg', title: 'Do DOCTORS need this ROBOT? | Chitti', views: 9673 },
+  { id: '9-all0tdBuc', title: 'This Watch is SAVING LIVES | Chitti', views: 22252 },
+  { id: 'E-XZ8VkdZAI', title: 'What is This Weird Sticker at Metro? |Chitti', views: 42269 },
+  { id: 'ITzZM2p_Zdw', title: 'Why Dark Clothes Feel Hot? | Chitti', views: 42598 },
+  { id: 'O17eomqCvXY', title: 'Why is Water not Spilling? | Chitti', views: 18383 },
+  { id: 'IhTVZHLeIaI', title: 'WHY Does THIS BALLOON SHRINK underwater?| Chitti', views: 85858 },
+  { id: 'iRFL0JntdH0', title: 'Why Doesn\'t This Ball Go Straight?| Chitti', views: 167444 },
+  { id: 'Mq1VpBTvbDo', title: 'Bridge STANDS without CEMENT !', views: 32341 },
+  { id: 'Z0YATO2p4AM', title: 'A Special Guest for a special Event - Chitti Innovators League 2026', views: 73083 },
+  { id: 'c7LepN7rKnk', title: 'This Laser Produces Music 🤯| Innovators League 2026', views: 29643 },
+  { id: 'uuQ2MPUzwHk', title: 'மனிதன் எட்ட முடியாத இடத்தை அடையும் ROBO | Chitti', views: 36443 },
+  { id: 'nO-8xoHdJwY', title: 'Why Artemis 2 took a STRANGE PATH to Moon?? | NASA', views: 25345 },
+  { id: 'cEQApbexcAI', title: 'Week 2: KIDS Turn IDEAS into REAL PROJECTS | Chitti', views: 17332 },
+  { id: 'DH0lDaQAvf0', title: 'Chitti Future School Worth ah? | இது தான் எதிர்கால பள்ளியா?', views: 15606 },
+  { id: 'HEaTS9e7icg', title: 'Tyndall Effect, reveals Blood Components!', views: 39225 },
+  { id: 'F8OiLmDCkP8', title: 'Why Does Salt Make Ice Colder?| Chitti', views: 3832240 },
+  { id: 'O5VG8Ud1Ec8', title: 'Week 1: Innovators League to TEST YOUNG MINDS', views: 15078 },
+  { id: 'dyrDbFdZKd0', title: 'We LIFTED a TABLE with a CUP!!!', views: 54622 },
+  { id: 'mW3DvQEJ__g', title: 'HOW to COOK without GAS CYLINDERS ?', views: 27917 },
+  { id: 'Q-MHZ9n_yrY', title: 'Can STUDENT\'s blow the Umbrella? | Chitti', views: 53506 },
+  { id: 'jgqF5cHMvMQ', title: 'Chitti\'s student Built this Automatic Water Dispenser !', views: 19826 },
+  { id: 'vrcvyW2jWPE', title: 'Smart Glasses for BLIND | How It Works??', views: 15694 },
+  { id: '4viZBb_ZdtI', title: 'No more HIGH EB bills | இதை Use பண்ணுங்க', views: 17546 },
+  { id: 'i_ALZyMkny4', title: 'உயிரைக் காப்பாத்தும் sensor | NO Gas leakage | Chitti', views: 20315 },
+  { id: 'IEhb8a542AE', title: 'SCREEN TIME Kammi pana KIDS Built their Own Game 😱', views: 14653 },
+  { id: 'rY0hFdK46xo', title: 'Kid Builds SMART FAN for Grandma!!! Innovation Club', views: 33097 },
+  { id: 'bnH_O5J1cL4', title: 'Chitti\'s Electronic wizard | Chitti Future School', views: 10499 },
+  { id: 'l2UaXiuxbvA', title: 'INDUCTION STOVE Vs GAS STOVE ! How It Heats Only Vessels ??', views: 22426 },
+  { id: 'A9HAsr1s_eU', title: 'Can you BREAK GLASS by SHOUTING?', views: 78616 },
+  { id: 'f8_LTBn2roc', title: 'Why is this Hanging Near Railway Tracks ?| Chitti', views: 3465116 },
+  { id: 'AoVCuZ0Q4q8', title: 'WHAT PARENTS think about CHITTI?', views: 8633 },
+  { id: 'C2t-JHtR-Aw', title: 'How does HAIR defy GRAVITY...??', views: 23722 },
+  { id: 'gnOz7vM68kU', title: 'Why You CAN\'T Pull These Books Apart ?', views: 32823 },
+  { id: 'GAzXCFvQI9c', title: 'Chitti Student\'s Invention Reaches IIT', views: 10870 },
+  { id: 'Ohvm1fwFJYY', title: 'This PAPER Doesn\'t TEAR..WHY?', views: 94358 },
+  { id: 'GUZFOITQp8c', title: 'Automate Streetlight using object detection | Chitti Superstar', views: 28095 },
+  { id: 'kZLkp7Bvjag', title: 'Can YOU SHAKE this using SCIENCE ? | Chitti', views: 48343 },
+  { id: 'XdMftdPl_Qc', title: 'Our Chitti Superstars shining everywhere - Rescue RC Bot | Chitti Future School', views: 15333 },
+  { id: 'B6Tx2lzc3kY', title: 'Measure LIC building\'s Height using Trigonometry| Chitti', views: 3743671 },
+  { id: 'enO1pEWZoaw', title: 'Chitti Future School | Trusted by Parents', views: 16482 },
+  { id: '3OZSMv-bKiY', title: 'What\'s your high Score?', views: 26066 },
+  { id: '36kpqPbVh5o', title: 'From Classroom to Innovation: A Success Story from Our STEM Program | Chitti Future School', views: 130990 },
+  { id: 'QJRylWIeepQ', title: 'Don\'t Cross this Yellow line ❌', views: 57607 },
+  { id: 'ea6dIfVh1RM', title: 'Cabbage vachu Acid/Base kandupidikka mudiyuma?', views: 33006 },
+  { id: 'ZRHCocuFiY4', title: 'Can you Balance this 🤯using Science?', views: 735616 },
+  { id: 'iej23QH1QNk', title: 'Can a Bubble hold Smokes ?', views: 32971 },
+  { id: 'hovR54j_aUk', title: 'How do Solar Panels Work? | Chitti Future School', views: 5074 },
+  { id: 'm0aEOiNzkIM', title: 'Why Can\'t They Jump Forward? | School challenge', views: 118769 },
+  { id: 'APC2ZLji0tU', title: 'Pencil + Matchstick = Fire 🔥', views: 37759 },
+  { id: 'ADSMslFxop4', title: 'Thannikula Yeriyuma?', views: 85730 },
+  { id: 'FfmnrHXKI60', title: 'Why does this Mysterious ball fly up?', views: 51846 },
+  { id: 'UzomajxxVVE', title: 'Mind-Blowing 3D Printing Uses! (Plus I Print an Iron Man Figure!) | Chitti', views: 7035 },
+  { id: 'LVJTWbbH_Rc', title: 'Measure a Building Using Just Your Eyes!!', views: 340975 },
+  { id: 'EuWYgMmgwg0', title: 'Unleash your kid\'s Potential Now | Admissions Open for Grades 2 to 8 | Chitti Future School', views: 10531 },
+  { id: 'MLU2CkgdMyU', title: '3 Candle Tricks', views: 32018 },
+  { id: 'BqKwWbLTOx0', title: 'How to remove stain??', views: 38205 },
+  { id: 'bSsKdARMMQc', title: 'Why does it make such Weird sound ?', views: 44302 },
+  { id: '_pvkzZgllLo', title: 'Chennai, you made it legendary— Epic energy levels! | BigBang - A Mega Science festival', views: 3175 },
+  { id: '211idK26BE8', title: 'Can you burst these Balloons?', views: 39633 },
+  { id: 'rYZ8i8VkyBU', title: 'How taste of milk is affected by toothpaste?', views: 17020 },
+  { id: '27XnatfDwP8', title: 'Sugar that burns like Rocket Fuel!', views: 207600 },
+  { id: 'Qy36Ia4i6ro', title: 'Mind Trick that Will Always Make You Lose!', views: 54970 },
+  { id: 'UZ00wDo6pTg', title: 'மாவு எரிக்க முடியுமா? 🔥', views: 30029 },
+  { id: 'FFXZ3gbEbYo', title: 'Don\'t try this | Connecting two plugs', views: 41308 },
+  { id: 'Ruj_qoBFDZw', title: 'Cylinder race experiment', views: 35431 },
+  { id: 'K3bvhCZr4A8', title: 'Who Emptied the Can Fastest? Office Challenge Experiment!', views: 28816 },
+  { id: 'QH3OG1PKuw0', title: 'Money challenge which will Break?', views: 93786 },
+  { id: 'VwjS4PzE5e0', title: 'Exploding Egg Experiment', views: 61013 },
+  { id: 'PzmbGQXC4Fc', title: 'பெண்கள் vs ஆண்கள் யார் ஜெயிப்பாங்க? | Static can RACE', views: 49928 },
+  { id: 'Wkrc3ZmQS0M', title: 'Bottle Flip Challenge Explained! 🍼🔥', views: 33144 },
+  { id: '-zHxjoNifuw', title: 'BigBang - A Mega Science Show at Coimbatore - Sept 28th | Book your seats now !!!', views: 15902 },
+  { id: 'PzqmD41x1qE', title: 'Book Your Seats Now - Sept 28th - BigBang Science Show', views: 51347 },
+  { id: 'XLqX1yrAg6A', title: 'Smart Glass for Blind People | Chitti Future School - Hackathon', views: 20731 },
+  { id: 'VvzweGxRj9U', title: 'VOLCANO Reaction! 😱🔥', views: 37641 },
+  { id: 'KtlGUf4LxJw', title: 'Torque explained using Badminton', views: 58228 },
+  { id: 'K-0HBpRO4q4', title: 'It floats and sinks at the same time??', views: 53380 },
+  { id: 'IX99Va5h2IE', title: 'How Spinning Water Makes a Lemon Float!', views: 90143 },
+  { id: 'LevKsIE6FyI', title: 'The most dangerous solution. Dissolves everything!', views: 48311 },
+  { id: 'oLEOKLLlUHg', title: 'Turn ANYTHING into a SPEAKER with this Coin!', views: 144564 },
+  { id: 'vsqWnA8cXho', title: 'The Most Dangerous Chemistry Experiment (Hydrogen Gas Explained!)', views: 120236 },
+  { id: 'rKhwg-ui3GM', title: 'We Built a Shoe That Charges with Every Step!', views: 17158 },
+  { id: '4Ck01Tkt2BY', title: 'This Experiment Explain Electricity | Lenz Law', views: 200345 },
+  { id: 'fKCNKWj4_bg', title: '✅ Chitti at School: Gravity Defied Object Stuns Students', views: 56813 },
+  { id: 'jmGhqWhq5c8', title: 'This Device Detect Lightning before it Strikes', views: 7541 },
+  { id: 'vA3HHAQ-FhM', title: 'When Scientists Think Weird!', views: 8974 },
+  { id: 'knsq6E6tYow', title: 'Ask Chitti: Why Does Hot Metal Glow RED?', views: 76632 },
+  { id: 'OSNQ-Kcd2Rk', title: 'How to Make a Glass SING! | Chitti at School', views: 92821 },
+  { id: 'f7eV2mgagMo', title: '✅ The Food Lab: The Secret Science of Your Kitchen! (Butter, Mayo, & Ice Cream!)', views: 4836 },
+  { id: '9iGRu1vtMS4', title: '✅ Ask Chitti: Can Salt Separate Water and Alcohol?!', views: 91704 },
+  { id: 'IjvJF7FUAXA', title: 'The Instant Fire Trick - Chemical Volcano! | Chitti at School', views: 51039 },
+  { id: '1DuOLtBJDhQ', title: 'Lets find 👽 Alien Planet | How it works', views: 6938 },
+  { id: '30ZRiorZMOA', title: '🌵 Lets swap the Brain 🚗', views: 34074 },
+  { id: 'LLW3QNAP5Qo', title: 'The Flask and Water Challenge | Chitti at School', views: 83431 },
+  { id: 'ZpH2vD6MoHM', title: 'We Opened Its Brain! 🌵🤖 | Dancing Cactus | How it Works', views: 41155 },
+  { id: 'HWr-Cuy-DT4', title: 'Cosmic Tour: From Burning Mercury to Frozen Neptune', views: 5971 },
+  { id: 'd2tkTu5hiSk', title: 'Glass உள்ள எப்படி Print பன்றாங்க? | How Bubblegrams Are Made!', views: 845376 },
+  { id: 'k91YiEX0vFI', title: 'The "Frozen" Water Trick | Ask Chitti', views: 39882 },
+  { id: 'wEX5w2FJFok', title: 'Viral Hack Tested! Can a Wine Glass Project Your Phone Screen?!', views: 47482 },
+  { id: '5-aCRxT35SM', title: 'What Is Targeted Drug Delivery Doing Inside Your Body?', views: 4496 },
+  { id: 'gcYVMr6BGio', title: '✅ Ask Chitti: Can MAGNETS Really Push Grapes?! 🍇🧲', views: 358862 },
+  { id: 'b7cMrqXpEgA', title: 'Make Water Disappear?! Chitti Explains Super Absorbent Polymers!', views: 42200 },
+  { id: '71WYRb-89E8', title: '5 Weird Materials That Will SHOCK You', views: 10600 },
+  { id: 'lMraTlQyTJA', title: 'Earth\'s 5 DEADLIEST Moments That Nearly Wiped Out Life! 🌎💀', views: 13981 },
+  { id: 'jgp71BbmVOk', title: 'DIY Camera | Lets Flip the Light Upside-Down | Chitti\'s Experiment', views: 32874 },
+  { id: 'kptqpNHY_d0', title: 'The Invisible Flame Trick! 🔥👻 | Chitti at School', views: 78563 },
+  { id: '3-Z-Z0-P0Wg', title: 'Did you notice that at Metro station? | How It Works', views: 17829 },
+  { id: 'XrCAVidYSaw', title: 'Lift a Glass with a Candle Flame?! 🤯🔥 | Chitti at School:', views: 33064 },
+  { id: 'I7QzVWURUNo', title: 'Pisa Tower - க்கு உதவும் தமிழனின் தராசு!', views: 7298 },
+  { id: 'n9lWzSSGGX0', title: 'Make Objects DISAPPEAR with Light polarization 🤯✨ | Chitti at School', views: 57317 },
+  { id: 'cgfkwgq-M_k', title: 'Internet Science: REAL or FAKE?! | Chitti Tests 5 Trending Experiments', views: 10348 },
+  { id: '5l2r5eitntM', title: 'இப்படியும் நடக்குமா? | Behind the Beliefs', views: 4700 },
+  { id: 'Svq1wTo4l9s', title: 'Painkillers: Do They Really "Find" the Pain?', views: 11897 },
+  { id: 'p5LJZhBYHWY', title: 'Iron Wool Gains Weight When Burned?! 🤯⚖️🔥| Chitti at School', views: 815345 },
+  { id: 'ByhVOfMkz6A', title: 'What Happens if Magnetism DISAPPEARS Tomorrow? | What IF', views: 11602 },
+  { id: 'IP4xIV3QZdY', title: 'Ask Chitti: Quick Freeze Ice Cream with SALT! (Endothermic Reaction!) 🍦🧂', views: 1391064 },
+  { id: 'PrTjE0TEmCY', title: 'Chitti at School: Fire a Match with SUPERHEATED WATER?! 🤯🔥', views: 71409 },
+  { id: 'WozK4f3gac0', title: 'Song on LASER and LI-FI works🤯 | How it works', views: 15937 },
+  { id: 'fES5RcP8j3g', title: 'Ask Chitti: Floating Fire?! The Butane Velocity Secret! 🔥💨', views: 119892 },
+  { id: 'oDTcn38hg_g', title: 'Chitti at School: Blow Out a Candle With Your PHONE?!', views: 93068 },
+  { id: 'ctv-rcjTVeg', title: 'WATER\'S 5 WEIRDEST SECRETS You Won\'t Believe!', views: 12010 },
+  { id: 's2_9RgMRwQw', title: 'Chitti at School: Blow Up a Balloon INSIDE a Bottle?! 🎈', views: 10976096 },
+  { id: 'k_AUQVIt9ds', title: 'You\'re Moving at 1000 MPH! Why Don\'t You Feel It? | Chitti Tamil', views: 12236 },
+  { id: 'VmnGfEIXdCU', title: 'Why You Should NEVER Drink Juice in Space 🚀', views: 5229 },
+  { id: 'm8cyWKaEwPo', title: 'I Built a Electroscope to Catch Static!', views: 73063 },
+  { id: 'gnv_RcU9Vys', title: '✅ Ask Chitti: How Does CPR SAVE A LIFE?! ❤️‍🩹', views: 43666 },
+  { id: 'ZBrauurtIdc', title: 'How to Stop water? | Chitti at School', views: 1238840 },
+  { id: 'jq_--blZCgs', title: 'How Do Submarines BREATHE Underwater? | How it works', views: 16198 },
+  { id: 'TWfz-lTWjD0', title: 'Guess! Which go OFF first? | Guess Game', views: 74701 },
+  { id: 'wNTdRJcuv6E', title: 'Ceramic உடையாம ஓட்டை போட முடியுமா? | Chitti at schoot', views: 142309 },
+  { id: 'o6SWDdpBSVU', title: 'Lets make Artificial Rainbow | Ask Chitti', views: 49354 },
+  { id: 'cVYjMFalYDc', title: 'Top Math AI Tools You NEED to Know! | Teach Smart with Chitti', views: 28615 },
+  { id: 'fBtqSwivv6I', title: 'The Shocking Truth About GPS Accuracy Nobody Tells You', views: 22332 },
+  { id: 'HmcMnnXQDb4', title: 'Bye Bye Boring Display | Futuristic 3D Hologram Display Ready', views: 30788 },
+  { id: 'HucXZSYtXB0', title: 'Fragrance Magic! How Perfumers Make Scents Last! 👃✨ | Ask Chitti', views: 29091 },
+  { id: 'L07NtMqi8sk', title: 'Hammer Saves the Cup? | Chitti At School', views: 87181 },
+  { id: 'FiNtNPCXc1c', title: 'Bye-Bye Prototypes! Hello Constant SI Units!', views: 4328 },
+  { id: 'mrDG92au-2I', title: 'Visualize Math! Simple Graphing with GeoGebra | Teach Smart', views: 3435 },
+  { id: 'diuidup_fb0', title: 'பாக்டீரியாவுக்கு Tattoo குத்திட்டாங்க? | TODAY TECH', views: 32927 },
+  { id: 'koJ52MCmKHs', title: 'ஊதுனா அணையாம எரியுது? 🔥💨 | Ask Chitti', views: 38000 },
+  { id: '6if11d018ZM', title: 'சுத்துனா பறக்கும் | Chitti at School', views: 111164 },
+  { id: 'yvH8xbDSUCI', title: 'How Computers Got Their Brains: The Journey from IBM to EDVAC | Oru Kathai sollatta', views: 4852 },
+  { id: 'XfoHAcfjcW0', title: 'Lets Find Speed of Light in your KITCHEN | Chitti', views: 5253 },
+  { id: 'YwEUsmibDYI', title: '3 Mind-Blowing Egg Tricks!', views: 70079 },
+  { id: 'YgiSpSTcvT8', title: 'COOL Science Behind Halls! ❄️🍬 | ASK CHITTI', views: 28469 },
+  { id: 'nUifOiqJsQA', title: 'Heat the Balloon with Water! 🔥🎈 | Chitti at school', views: 449636 },
+  { id: 'V_TMP7XHRaY', title: 'AI Scheme by TamilNadu Government | Chitti Tamil', views: 31420 },
+  { id: 'bnQb9uvXXlI', title: 'The Forgotten war hero | Oru Kathai Sollatta?', views: 6675 },
+  { id: 'byGoP7lYxdE', title: 'இந்த Battery ய Rubber மாதிரி stretch பண்ணலாமா?🔋| Today Tech', views: 30492 },
+  { id: 'rf1LjNlcFJI', title: '😎 How ND filter Wroks? | Ask chitti', views: 26529 },
+  { id: 'sfCOxzglkEQ', title: 'Zero Gravity Room on EARTH? Possible!', views: 54401 },
+  { id: 'Hi_ZQEtVDf0', title: 'Level Up Your Math Lessons with AI | Teach Smart with Chitti', views: 3812 },
+  { id: '21laMyPDwf4', title: 'What If Insects Vanished? | The World Without Bugs! | What If?', views: 23351 },
+  { id: 'b1D7DrppSBI', title: 'Could We Bring Back the Dire Wolf? 🐺🧬 |', views: 29448 },
+  { id: 'bQk_bfdppS8', title: 'The Secret of the Blix Squeaky Toy! | HOW IT WORKS', views: 28194 },
+  { id: 's4nmP5MjanI', title: 'Satellites Falling vs Global Warming?', views: 35517 },
+  { id: 'AVTSdjYo6tc', title: 'The Secret of Invisible Ink! |', views: 45520 },
+  { id: 'Zb_ssouIC5Y', title: 'Boil Water WITHOUT Fire! 🤯 | chitti at school', views: 291673 },
+  { id: '_b9kPYgggR0', title: 'Thier Dream ignite a HISTORICAL CHANGE! | Oru Kathai Sollatta?', views: 6706 },
+  { id: 'Bq01q_BZGvU', title: 'Heart a 3D Print பண்ண முடியுமா? | Today Tech', views: 63505 },
+  { id: 'i66xg-g8_ww', title: 'Power of Exponential Growth | Chitti Tamil', views: 5838 },
+  { id: '-jV6v1ZKNjk', title: '✈️ Why does your plane shake? | Ask Chitti | Turbulence explained', views: 638518 },
+  { id: 'CNb_OJy-oFI', title: 'Air Fuel Gun! | Chitti\'s Explosive Lesson', views: 2267584 },
+  { id: '-0JFDQ854_k', title: 'The Science of Magnets: From Atoms to Powerful Forces', views: 14954 },
+  { id: 'F3Sfz1Y0lGw', title: '3 Powerful Student Attention Techniques | Teach Smart', views: 2148 },
+  { id: 'XFQwoL3IrKM', title: 'Draw an Ellipse Using String Challenge! | Fun Geometry Trick', views: 139742 },
+  { id: 'xjOq5Em8kpM', title: 'இவ்ளோ Crispy ya? | Ask chitti | Why Does Frying Make Food Crispy?', views: 314962 },
+  { id: 'V66RYrTnCtI', title: 'எப்படி இருந்த நான் இப்புடி ஆகிட்டேன் | Inflate Deflate | Chitti at School', views: 672979 },
+  { id: 'y4JQ8_TBgIA', title: '1 Min la Question Paper ah? | Teach Smart with Chitti | AI', views: 9763 },
+  { id: '4Fi4Tu65Dgk', title: 'The women who changed science for Ever | Oru Kathai sollatta', views: 5869 },
+  { id: '8mlDKZTd_OM', title: 'Super Fast Internet! is that Possible? | Quantum Network', views: 305290 },
+  { id: '92kTI-3NUOo', title: 'Flight a மின்னல் தாக்குமா? | Ask Chitti - 30', views: 667704 },
+  { id: '-phxuOWWOHs', title: 'Bottle உள்ள மேகத்த பிடிப்போமா? | Chitti at School', views: 331718 },
+  { id: '4-24nahBgxE', title: 'உங்க Mosquito Bat Repair ஆ ? | How it works', views: 17175 },
+  { id: '0R8wUVbSo_U', title: 'What If Earth Had Moon’s Gravity? | Life in Low Gravity!', views: 13218 },
+  { id: '4raUrl4Y4wg', title: 'Phone ல எதுக்கு க்ரிச்... Sound?', views: 30750 },
+  { id: 'r14hfxR9si4', title: 'How Do Anglerfish Survive Extreme Deep-Sea Pressure? | Ask Chitti', views: 229670 },
+  { id: 'yHiYKGDyCek', title: 'எது எதுல மிதக்கும்? | Chitti at School', views: 146585 },
+  { id: 'mpJtu9JeWuk', title: 'AM vs FM | What’s the Difference?', views: 31872 },
+  { id: 'JGD25srr7Uo', title: 'Induction Stove la Bulb எரியுமா? | Chitti Experiment - Final', views: 136072 },
+  { id: 'zEdlKRi-H5w', title: 'WHO Really invented The Radio? | Oru kathai sollatta', views: 4575 },
+  { id: 'TuhEwQnC704', title: 'Is this Dhoni\'s Last IPL? | One Last Time?', views: 28514 },
+  { id: 'vCM_lbs9R60', title: 'Diamond Facts | Ask chitti', views: 25336 },
+  { id: 'UcRR3iQgl6g', title: 'Secret song a kekalama? | How It Works | Chitti', views: 17577 },
+  { id: '7SihhtRBeE4', title: 'Which side air goes? | Chitti\'s Experiment - 24| Air Pressure', views: 221685 },
+  { id: 'sf3UUQQshnU', title: 'Sugar-ஐ கண்டுபிடிப்பது எப்படி? | Ask chitti - 26 | HPLC', views: 45355 },
+  { id: 'HBEeDHB6dio', title: 'Lifting Tender Coconut Using Potato? | Chitti at School', views: 4692826 },
+  { id: 'lGbmhE8-N_c', title: 'An inspiring story of a Panchayat President aka STEM Trainer | Teacher Empowerment Program | Chitti', views: 1921 },
+  { id: 'HWgsm_tiM_w', title: 'Why Doesn\'t Earth Have Rings?', views: 9586 },
+  { id: 'Y6z57DzpyDQ', title: 'Current இல்லாம எப்படி வேலை செய்யுது?', views: 132147 },
+  { id: 'HNl-RBYWrpM', title: 'Why Do Some Plugs Have 3 Pins and Others Have 2? ⚡🔌 | AskChitti - 26', views: 41522 },
+  { id: 'VlwTS2g0Rw4', title: 'Carl Sagan – The Man Who Made Us Dream Big ! ✨🔭 | Oru Kathai Sollatta? Tamil', views: 33118 },
+  { id: 'fjhZ_Miiz_k', title: 'Which one is correct? | Chitti at school', views: 1068259 },
+  { id: '3iQ3haoy1XY', title: 'எத்தன தடவ fine கட்டிருக்கீங்க? | How it Works', views: 7719 },
+  { id: 'QrOQozA-ehw', title: 'Magnet vs aluminium', views: 86360 },
+  { id: 'NbUOZEFCJVo', title: 'Cut coconut using paper | chitti at school', views: 1176208 },
+  { id: 'ja3sZWEGsyA', title: 'Can Straws Save an Egg? 🥚🛠️ | Chitti Experiment - 21 | Science Challenge', views: 96647 },
+  { id: 'pxxNJqUnaLQ', title: 'கேள்விக்கு என்ன பதில்? | AskChitti Special | Viewer Questions', views: 4224 },
+  { id: 'XdUrlQm45EE', title: 'Natural frequency | chitti at school', views: 330373 },
+  { id: 'zWb5NVVDJDw', title: 'Master Any Concept with the Feynman Technique + AI! | Science Shorts | Learn Smarter', views: 37720 },
+  { id: '5GLU2ki1Tk8', title: 'An ordinary person || Oru kathai sollatta? || Richard Feynman', views: 12005 },
+  { id: 'VHFvmcYPIzY', title: 'The magical star shape | chitti Experiment - 21', views: 120930 },
+  { id: 'KJfDxGVytww', title: 'How science won and Humanity Failed', views: 7426 },
+  { id: 'nVyk5UiB9ls', title: 'Can Tape Make Glass Transparent? | Chitti at School | Science of Light and Refraction 🔍✨', views: 4124810 },
+  { id: 'OGHTLLj0ZYo', title: 'Why Does Ice Float on Water? | Unnoticed 3.0 | Science Behind Everyday Wonders ❄️💧', views: 4473 },
+  { id: 'Oe7k4wFx59g', title: 'Boil Water in a Syringe! | Chitti Experiment Series | Science of Pressure 🌡️💧', views: 43094 },
+  { id: '7jP0av2RE8E', title: 'Why DC Motors Rotate Both Ways but Fans Rotate Clockwise? | Ask Chitti - 24', views: 69578 },
+  { id: 'bOEM7t_qczo', title: 'The Edison of India || Oru Katha Sollatta || Inspiring Innovators', views: 10354 },
+  { id: 'w5RZIcyne8Y', title: 'Matchstick Rocket | Chitti Experiment - 19 | Fire Triangle in Action 🚀🔥', views: 39716 },
+  { id: 'r0hSrnhWLKc', title: 'What is the Tyndall Effect? | Ask Chitti - 22 | Science in Everyday Life 🌈💡', views: 75544 },
+  { id: 'epYOWtgUc5I', title: 'Iodine Clock Reaction | Chitti at School - 18 | Chemistry in Action! ⏰🧪', views: 58344 },
+  { id: 'ZLX_meh_JhU', title: 'You can\'t Make Mistakes...! | Unnoticed 3.0 | Epi - 04', views: 6817 },
+  { id: 'sI0edAZba4g', title: 'Laser Pointer Microscope 🔍💧 | Chitti Experiment - 18', views: 100273 },
+  { id: 'e-_Xwz_5e7A', title: 'Fevikwik Fire: Fake or Fact? | Chitti at School -17 | Science Investigation! 🔥', views: 882222 },
+  { id: 'bqvHiRlgZa4', title: 'How laser light works? | Ask Chitti - 21', views: 348391 },
+  { id: 's9ielMxubio', title: 'We Need Your Support!', views: 18607 },
+  { id: 'ck5pBUJAORg', title: 'The Story of Gravity || ஒரு கதை சொல்லட்டா? || Story of science', views: 8735 },
+  { id: 'k-lF-Mos1bY', title: 'Stumper Ball vs Liquid Nitrogen | Chitti experiment - 18 | Freezing science', views: 46478 },
+  { id: 'X0AxARJdaYk', title: 'Why solar panels are in Blue color? | Ask chitti - 21', views: 77812 },
+  { id: 'OQ5-nt1ifqA', title: 'உங்க வீட்டுலயும் இந்த பிரட்சனை இருக்கா? | Ep - 03 | Unnoticed 3.0', views: 4070 },
+  { id: '3UhAvK49AfI', title: '770 degree Celsius ? | Chitti\'s Experiment - 16 | Magnet vs heat', views: 133820 },
+  { id: '8pvC_oYLhBs', title: 'Lets Bend the Light | Chitti Experiment-15 | Total Internal Reflection', views: 51504 },
+  { id: 'M435CKzRaEY', title: 'பறக்கும் குப்பை கவர் | Chitti at School - 16 | Hot Air Balloon', views: 4801432 },
+  { id: '_7pDvVYNLNQ', title: 'How Seeds Grow Against Gravity? | Ask Chitti - 20 | Seed Germination', views: 137778 },
+  { id: 'Hzkq8mMUVmU', title: 'Electricity in Brain | Actionpotential', views: 10015 },
+  { id: 'xk6RQWLPunI', title: 'How Underwater Plants Survive | Ask Chitti - 19 | Hydrothermal vents', views: 21108 },
+  { id: 'FRTR6qOAALU', title: 'WiFi can See through walls but need AI | Futuristic Technology', views: 4270 },
+  { id: 'cLecEjKe8hI', title: 'இந்த Trick நல்லா இருக்கே... | Chitti Experiment - 14 | Water Tornado', views: 64154 },
+  { id: 'KTP64a3osmM', title: 'நிழல் கருப்பு இல்லியா? | Chitti at School - 15 | Light Science', views: 1142972 },
+  { id: '1BGHAx6woMI', title: 'இனி 500 வருசம் ஆகாதா? | Today Tech - 03 | Reducing Plastic Waste', views: 30489 },
+  { id: 'O61c3SZHuwQ', title: 'Pendulum | conservation of energy', views: 43232 },
+  { id: '_A0U3ocdXnE', title: 'Why CRT TVs Get Distorted with Magnets? | Ask Chitti-18 | Magnetic interference', views: 27214 },
+  { id: 'bbE0GQP7jgw', title: 'Unnoticed 3.0 | Economy mode vs Power mode | part - 02', views: 4486 },
+  { id: 'cdfE2uhsS7o', title: 'என்ன இப்புடி எரியுது? | Chitti\'s Experiment - 13 | Endothermic vs Exothermic Reaction', views: 69942 },
+  { id: '4OUuDR7zDQ4', title: 'Pendulum | conservation of energy', views: 81016 },
+  { id: 'j4iIuPKrnIg', title: 'Shock அடிக்குமா? | Chitti at School | Vande Graaff Generator', views: 91678 },
+  { id: '0KGO1t9WUdY', title: 'Why Wounds Heal Slowly in Diabetes | Ask chitti - 17', views: 29548 },
+  { id: 'H5PHMev5_XE', title: 'The Story of the Nobel Prize || ஒரு கதை சொல்லட்டா? || Story of science', views: 10396 },
+  { id: 'x8bW0gDe4fA', title: 'இவ்ளோ ஈசியா? | Chitti\'s Experiment - 12 | Hover Craft', views: 309069 },
+  { id: 'mLyHC5bd_ew', title: 'Fun with Unitree Dog Robot ft. Mr. GK | Shorts', views: 30971 },
+  { id: 'v68BEjWzork', title: 'Mr.GK Fun with Futuristic Robot | AI and Robotics', views: 67141 },
+  { id: 'gDGKs_-tz7Q', title: 'Iphone user ஆ நீங்க? | Today Tech - 02 | MEMS Oscillator', views: 75251 },
+  { id: 'CUjYkpUXadw', title: 'Is that Brain Produce Electricity? | Ask Chitti - 16 | Action Protentional', views: 21437 },
+  { id: 'FwWBFUGfGAQ', title: 'இதெல்லாம் Speed breaker இல்லையா? | part - 01 | Unnoticed 3.0 | ChittiTamil', views: 9681 },
+  { id: 'iJ06sgn6MGg', title: 'இது கீழ விழுமா? | Chitti\'s Experiment - 11| Gyroscope Disk', views: 49118 },
+  { id: 'CedFvSPTdFg', title: 'The Magic Show | Chitti at School - 13 | Conservation of Energy', views: 557195 },
+  { id: 'kmZH4uik1kY', title: 'Chitti Maker School Parent\'s Feedback!', views: 4506 },
+  { id: 'Jrzp9vSLKCw', title: 'கண்ணாடி உடையுமா? | Conservation of Energy', views: 13858 },
+  { id: 'vmCQ-A2mOBg', title: 'Anti-Gravity Wheel | Chitti in the School - 12| Center of Gravity', views: 3337261 },
+  { id: 'adyistujE6w', title: 'Why Surgery Lights Don’t Cast Shadows | Ask Chitti - 15 | Shadow-Free Lighting', views: 321249 },
+  { id: 'WeZVkxOARzA', title: 'why it Stuck? | Chitti\'s Experiment - 10 | Bernoulli Funnel Experiment', views: 56025 },
+  { id: 'ArAl0j3YlOU', title: 'ஆரஞ்சு பலூன் | Orange React with Ballon | Chitti in the School - 11 | Simple Chemistry', views: 5250466 },
+  { id: 'k-NIvlpvUfs', title: 'Speed and Mass Distribution | ChittiTamil', views: 123902 },
+  { id: '53mjqd1oHjY', title: 'Glow stick எப்படி எரியுது? | Ask Chitti - 14', views: 286307 },
+  { id: 'Hw4DaAQgsxg', title: 'Chips யாருக்கு? |Chitti\'s Experiment - 09 | Science of Elastic Energy', views: 253568 },
+  { id: 'pIwXj6v_mj0', title: 'Paper with Bernoulli | Chitti in the School - 10 | Airflow Experiment', views: 3539524 },
+  { id: 'YbFwzv1PhnA', title: 'Oscillating Pendulums at Different Heights | ChittiTamil', views: 27588 },
+  { id: 'x9z6iylID6c', title: 'ஏன் இலை கலர் மாறுது? | Ask Chitti- 13 | Autumnal Senescence', views: 36496 },
+  { id: 'uYXLo17pROs', title: 'Tea cup☕ Vs Football ⚽| Chitti\'s Experiment Shorts - 08 | Magnus Effect', views: 61788 },
+  { id: 'pOCS7GiImVI', title: 'Gravity Light | Chitti in the School - 09 | How Gravity Powers Light', views: 2317813 },
+  { id: 'IpTJG_k5tFg', title: 'Falling Ant 🐜 | Ask Chitti - 12 | Terminal Velocity', views: 511117 },
+  { id: 'tCGW2ZACMNk', title: 'Fire Tornado 🌪️🔥| Chitti\'s Experiment Shorts-07 | Momentum Rocket', views: 99206 },
+  { id: 'yXjqwvoMKnk', title: 'Fingerprint Sensor எப்படி ஒர்க் ஆகுது? | Today Tech Shorts - 01', views: 57957 },
+  { id: 'DvKdbGMzh8k', title: 'Implosion Crush the Can | Chitti in the School - 08', views: 14014043 },
+  { id: 'RBi6o_3jkXQ', title: 'Umbrella and Newton\'s Third Law | ChittiTamil', views: 6127636 },
+  { id: '_UV5yKhy7wQ', title: 'How This Thermometer Work | Today Tech - 02 | Thermocouple | Thermopile', views: 5198 },
+  { id: 'PgOhSsy3Fz8', title: 'தண்ணி எரியுமா? | is that water burn?| AskChitti - 11 | Thermal Stability | ChittiTamil', views: 50590 },
+  { id: 'Dc99dSdJHkk', title: 'Where is my Water ? | Chitti\'s Experiment Shorts - 06 | Bell Siphon', views: 301428 },
+  { id: 'hxznqcBg2Xs', title: 'Can We Block the Signal of Radio? | Chitti in the School | Galvanic Shield Explained', views: 400084 },
+  { id: 'DZBqXh1SFmk', title: 'பூமி வெளிச்சமா இருக்கு ஆனா விண்வெளி கருப்பா இருக்கு🔭🌍 | Askchitti-10 | Light Scattering', views: 24849 },
+  { id: 'IC9wucYubJY', title: 'How Thermometer Works | How It Works - 02 | Mercury & Digital Thermometers Explained', views: 7831 },
+  { id: 'MYaPEOhj9IE', title: 'Could you Blow the card? | Chitti\'s Experiment Shorts-5 | Bernoulli\'s Principle', views: 304365 },
+  { id: 'waz7ehWEUmk', title: 'Science Festival Event at Science city | sep 24, 25, 26', views: 22294 },
+  { id: 'iKPfGh1B0BA', title: 'கண்ணாடி Current⚡️- அ கடத்துமா? | Chitti in the School-06| Heat vs Electricity', views: 2237805 },
+  { id: 'vu0_UP6TjZk', title: 'The ghost ship 🚢🦅 | Ask Chitti - 9 | Fatamorgana Effect | Flying ship', views: 34258 },
+  { id: 'CTPPlKij5pY', title: 'Rubber ball with rocket 🏀🚀 | Chitti\'s Experiment Shorts-04 | Momentum Rocket', views: 62738 },
+  { id: 'LptE9PKU6Ak', title: 'கைய எரிய வைப்போமா?🔥 | Chitti in the School - 05 | Fire in Hand 😱', views: 5671539 },
+  { id: 'T93gWaHd_UI', title: 'ஏன் Fuse போகுது? ⚡💡 | Ask Chitti - 8 | Electrical Resistance', views: 381506 },
+  { id: 'KWCjNiagw5E', title: 'தண்ணிய use பண்ணி ஓடுமா? 🚤🌊 | Chitti\'s Experiment Shorts-03 | Thrust boat', views: 79620 },
+  { id: 'p_rRIMFyNN0', title: 'Futuristic Robot in School 😯| Fun in School | Robotics', views: 10326288 },
+  { id: '-SJnqzF73s0', title: 'Happy Teachers\' Day | Chitti | 2024', views: 32368 },
+  { id: '6OSPGekV574', title: 'இப்படிதான் Solar Panel Work ஆகுது 🌞⚡🪫| Ask Chitti - 7 | Photovoltaic Effect', views: 139632 },
+  { id: 'qS94VHOVPl8', title: 'ஏன் ஓரமா மிதக்குது? 🌊⚽ | Chitti\'s Experiment Shorts-02 | Meniscus', views: 4523842 },
+  { id: 'Th5ZU1r7Ia0', title: 'Oxygen இல்லாம சூரியன் எப்படி எரியுது? 🔥🌞 | Ask Chitti - 06 | Nuclear Fusion', views: 62272 },
+  { id: 'YVJYXUjjuso', title: 'தீக்குச்சி Magnet-ல ஒட்டுமா?🔥🧲 | Chitti\'s Experiment | shorts - 01', views: 771818 },
+  { id: 'LmYI78YJ3ho', title: 'How a Toy sink and Float at same time? | Cartesian diver | Exp-01|Chitti\'s Experiment', views: 5693 },
+  { id: 'wJKjP8bvzTs', title: 'Birds தூங்குறப்போ கீழ விழுமா? 🐥 😴 | Ask Chitti - 05 | Lumbosacral organ', views: 92482 },
+  { id: 'l797sk0z8oQ', title: 'Helium🧯 vs My voice 🔊', views: 63142 },
+  { id: 'So8ql1wQt4s', title: 'இனி டோல்கேட் இருக்காதா? | Today Tech | EP-01 | RFID', views: 5486 },
+  { id: 'yyIf40gQY8g', title: 'Rust in Coastal Iron 🌊⛴️ | AskChitti - 4 | Electron transfer', views: 27429 },
+  { id: 'qpGuI_3ZV2o', title: 'What makes a different sound? 🎈💥', views: 566127 },
+  { id: 'yp81Tez4zro', title: 'Stone Fire 🔥| AskChitti - 3 | Conservation of Energy', views: 40721 },
+  { id: '-fF_lytEdso', title: 'Pencil எரியுமா? ✏️', views: 1518103 },
+  { id: 'pTKNmWEjD_g', title: 'Why does EB wires HANG loosely between poles?', views: 26563 },
+  { id: '-pltUVPsgro', title: 'How does earth act as magnet?', views: 113506 },
+  { id: 'qrZGQBdZA68', title: 'How does a speaker work ? | EP-01 | How it works? | Chitti', views: 12677 },
+  { id: 'QxRGiTfGwpw', title: 'Bigbang Coimbatore - Feedback | Chitti', views: 155054 },
+  { id: '4X3VZMUh4Fw', title: 'Bigbang Coimbatore Glimpse | Chitti', views: 19372 },
+  { id: '8iIKKPrnoxU', title: 'Eda mone Workshopku Ready oh', views: 15677 },
+  { id: 'VAqbysKi2pw', title: 'Customer Success Story: Chitti Superstar - Jeevitesh', views: 3452 },
+  { id: 'eu8sPfgTazI', title: 'Join our Free Aero modelling Workshop ( Link in bio)', views: 17232 },
+  { id: 'RpV4qz4Ytxo', title: 'Maths Made Simple | Chitti', views: 13390 },
+  { id: 'g3KsCsusNvU', title: 'Boiling Water with Ice Challenge | Ep-18 | Chitti with Chutties', views: 35398 },
+  { id: 'EAPubOA0YEs', title: 'Bottle Rocket Experiment | Ep | Chitti with Chutties | CWC | Chitti', views: 27496 },
+  { id: 'cnYcWPD6kmE', title: 'Skill Development - FREE DEMO Live Workshop for Kids | Workshop for K-12 Students | Chitti', views: 16599 },
+  { id: '541jR1lD9Cs', title: 'Fire Tornado Experiment | Ep | Chitti with Chutties | CWC | Chitti', views: 13214 },
+  { id: 'ZGWvXf5vF30', title: 'Lava Lamp Experiment | DIY Science Experiments | Chitti', views: 65950 },
+  { id: 'bs3uqHy88o4', title: 'Tricks with ENO | DIY Science Experiments | Chitti', views: 87354 },
+  { id: '4_m7SfLSbG4', title: 'Making of Snow| DIY Science Experiments| Chitti', views: 57124 },
+  { id: 'ax1BO122af0', title: '30 Second-ல 3 Experiments-ஆ!!! | Chitti', views: 72287 },
+  { id: 'TdPLuuaU7s4', title: 'Vande Graaff Generator - Static Electricity', views: 47081 },
+  { id: '1qszpCCgD1E', title: 'Disappearing Glass Experiment | Ep | Chitti with Chutties | CWC | Chitti', views: 24222 },
+  { id: 'YuSz_Izt2LE', title: 'Can Crush Experiment | Ep | Chitti with Chutties | CWC | Chitti', views: 14910 },
+  { id: 'cUeaVMOaXcw', title: 'FREE Robotics Simulation Workshop | Class 3 - Class 8 | Register Now | Chitti Labs', views: 10753 },
+  { id: 'jX-cYhhFYZU', title: 'Magnesium Ribbon Experiment | Ep | Chitti with Chutties | CWC | Chitti', views: 14612 },
+  { id: 'Bik7kYygcJ8', title: 'Helium Balloon Experiment | Ep | Chitti with Chutties | CWC | Chitti', views: 18322 },
+  { id: '3WwonZLbjzA', title: 'Liquid Nitrogen Experiment | Ep | Chitti with Chutties | CWC | Chitti', views: 13608 },
+  { id: 'EDPqUDEF1Ko', title: 'Lava Lamp Experiment | Ep | Chitti with Chutties | Chitti', views: 21391 },
+  { id: 'UKZD-OK5FHc', title: 'Stop investing on expensive Science Kits | Chitti Labs | Chitti', views: 19427 },
+  { id: 'BfmRMXU7ifg', title: 'Making of Homemade Snow | Ep | Chitti with Chutties | Chitti', views: 31626 },
+  { id: '-E9gnmKmiaw', title: 'Fire on Hand | Ep | Chitti with Chutties | Chitti', views: 37522 },
+  { id: 'yqugH83pLvY', title: 'Food Adulteration | Class 6 | Chitti Classes', views: 21624 },
+  { id: 'hxYB9iw6wlM', title: 'Elephant Paste | Ep | Chitti with Chutties | Chitti', views: 31997 },
+  { id: 'rpDtxjNM3dU', title: 'Why Samosas are in Triangular Shape? | Class 6 | Chitti Classes', views: 17166 },
+  { id: 'KZ8ztm5MgkQ', title: 'Sodium Bomb - Do not try this at home! | Ep | Chitti with Chutties | Chitti', views: 32392 },
+  { id: 'znrQ7Wk4TBU', title: '24hrs Vs 12hrs Clock | Class 6 | Chitti Classes', views: 22766 },
+  { id: 'PwjoN2DOk14', title: 'The Modifications of Stem | Class 7 | Chitti Classes', views: 13715 },
+  { id: 'yWYF4iR9QjA', title: 'Here from our Student | APP Development Workshop | ChittiLabs', views: 2722 },
+  { id: 'd8CSoGW5b8c', title: 'Feedback from Niharika | App Development Workshop | ChittiLabs', views: 2172 },
+  { id: 'PwU1HrI-NyA', title: 'Feedback from Varsha | App Development Workshop | ChittiLabs', views: 2066 },
+  { id: 'HTcfnuGwKns', title: 'Hear from Niharika\'s Parent | App Development Workshop | Chitti Labs', views: 3342 },
+  { id: 'MRBuDHmjVlY', title: 'Hear from Sabarish | Student of App Development Workshop | ChittiLabs', views: 3248 },
+  { id: 'ix9Rc0P7F8U', title: 'Carrot Fruit இல்ல டா, Root டா! | Class 7 | Chitti Classes', views: 20627 },
+  { id: 'XZ7ZizDE06c', title: 'Percentage Calculation is now Simple | Class 7 | Maths | Chitti Classes', views: 15775 },
+  { id: 'vIZcdpRBgSM', title: 'Are you bored at Home? | ChittiLabs Summer Workshop', views: 15103 },
+  { id: 'sGbdXPWmkTk', title: 'Importance of Time | Class 6 | Physics | Chitti Classes', views: 12807 },
+  { id: 'lBIXaWOho5Q', title: 'Learning laplace law with Balloons! | ChittiLabs', views: 27900 },
+  { id: 'yO7rFWvVkEk', title: 'Feedback from Students | App Development Workshop | ChittiLabs', views: 17902 },
+  { id: 'vcrTmCduIcI', title: 'The Only Learning App in தமிழ் | Chitti Classes | Download Now', views: 13057 },
+  { id: 'x89tfckSy-k', title: 'Floating Orange Experiment | Ep | Chitti with Chutties', views: 35918 },
+  { id: 'yh7BWblRTlc', title: '500+ happy students in Chitti Summer Workshop!', views: 10091 },
+  { id: '2TB2ozgdOsg', title: 'Tea Bag Rocket | Ep | Chitti With Chutties', views: 42081 },
+  { id: 'L6GBG5kClhs', title: 'Trip to Mayavanam | EP | LUNO BRUNO | ChittiClasses', views: 6906 },
+  { id: 'moBR8CO5NXE', title: 'The pepper & omelette problem | Chitti Labs', views: 20796 },
+  { id: 'AxvO2S7ECCY', title: 'Canister Tablet Experiment | Ep | Tamil | Chitti with Chutties', views: 42596 },
+  { id: 'ZgY_cFb-YaI', title: 'Summer DIY Science Workshop | Chitti Labs', views: 6999 },
+  { id: 'pcXoSseNxCM', title: 'Introduction to APP Development Workshop | ChittiLabs', views: 11541 },
+  { id: 'XF4-1WfnHhQ', title: 'APP Development Workshop | Chitti Labs', views: 16812 },
+  { id: 'F_loPN9LR_8', title: 'Bending of light Experiment | Ep | Tamil | Chitti with Chutties', views: 53340 },
+  { id: '1ZIEbL94Ba0', title: 'Salt & Pepper Experiment | Ep | Tamil | Chitti with Chutties', views: 72542 },
+  { id: 'JsMCS_4R0ts', title: 'Parent\'s Feedback on Chitti Super Learners Webinar | Chitti Classes', views: 1831 },
+  { id: 'aHCd_xLpF4o', title: 'Parent Feedback on Chitti Super Learners Webinar | Chitti Classes', views: 1671 },
+  { id: 'a4ljQ5sioms', title: 'Our Student Pranav about Super Learners Webinar | Chitti Classes', views: 1758 },
+  { id: 'pYT2z5Rmhwo', title: 'Applied Learning of Imaginary Numbers | Chitti Classes', views: 11653 },
+  { id: 'Imh06sJcJSs', title: 'Conceptual learning of Torque Formula | Chitti Classes', views: 11058 },
+  { id: 's_5ysFnoeb0', title: 'Student Feedback on Chitti Webinar | Chitti Classes', views: 1614 },
+  { id: 'YjI3mTXBdc4', title: 'Chitti Super Learners Online Workshop | Chitti Classes', views: 12257 },
+  { id: 'NKTLZTGWEu8', title: 'How to calculate percentage? | Class 7 | Maths | Chitti Classes', views: 17612 },
+  { id: 'OwuVsgq4VVA', title: 'Friction | Class 8 | Physics | Chitti Classes', views: 67996 },
+  { id: 'RMY_np_zXCQ', title: 'Experience the new features in Chitti Classes!', views: 216028 },
+  { id: 'Mu3Rxcj3qYo', title: 'Ascending Order | Class 1 | Maths | Chitti Classes', views: 6968 },
+  { id: 'yzG2zQGr1ws', title: 'Experience the new way of Learning | Chitti Classes', views: 6305 },
+  { id: 'SrIGG2YoRfY', title: 'Mutation | Biology | Class 10 | Chitti Classes', views: 24496 },
+  { id: 'Fua1Yt20YKE', title: 'Chitti 2.0 Upgraded | Chitti Classes', views: 8942 },
+  { id: 'EKDrc3WvIoE', title: 'Molar Mass | Class 10 | Chemistry | Chitti', views: 43208 },
+  { id: 'BeByjytBa5w', title: 'Multiplication using Fingers | Class 4 | Maths | Chitti', views: 26878 },
+  { id: 'FIU9_auis7A', title: 'Pongal - An Indian Festival | Class 1 | Science | Chitti', views: 4833 },
+  { id: 'nEeGiqmroKA', title: 'Types of Numbers | Class 8 | Maths | Chitti', views: 15955 },
+  { id: 'MSBFoRd6Di0', title: '| Chitti', views: 0 },
+  { id: 'OWAcmzYuTys', title: 'Metric System | Class 6 | Maths | Chitti', views: 25812 },
+  { id: 'VWC8XtyN4Vc', title: 'Preservation of Food | Class 5 | Science | Chitti', views: 18610 },
+  { id: 'zrHpxty5dQo', title: 'Atomicity | Class 10 | Chemistry | Chitti', views: 32432 },
+  { id: 'Xa7Kbkr2zcg', title: 'Athlete Vs Tortoise | Chitti', views: 42836 },
+  { id: 'zKWosaWQLlE', title: 'Life cycle of a Butterfly | Boo | Chitti', views: 25552 },
+  { id: 'ebVM6Ueuo1A', title: 'Adventures of Boo..! | Chitti', views: 14136 },
+  { id: '5vmUZq1SbmY', title: 'Explaining parallelogram using sweets? | Chitti', views: 20406 },
+  { id: 'GQJp1HT6TNg', title: 'Waste Management | Chitti', views: 27515 },
+  { id: '_eA2uAelh_I', title: 'How do plants take water to all its parts? | Chitti', views: 21163 },
+  { id: 'U6UeHxmUZFY', title: '2D & 3D Shapes | Chitti', views: 28395 },
+  { id: 'KX8WOwUyqRA', title: 'why samosas are in triangle shape? | Chitti', views: 34326 },
+  { id: 'aCWr9CHT6A8', title: 'Mass Vs Weight | Chitti', views: 60605 },
+  { id: 'cwJLCipu_X8', title: 'what is e? - e that crashed Rockefellers growth - Eulers number | Chitti', views: 82356 },
+  { id: 'KNGhaCrSFts', title: 'How Chitti can help you in this Quarantine? | Learn with Chitti', views: 7366 },
+  { id: '2VTTxIbFfQU', title: 'Current & Voltage | Chitti', views: 91100 },
+  { id: '-J33xddj1yo', title: 'Introduction to Motion | Chitti', views: 69708 },
+  { id: 'HZLkz-Kj95k', title: 'DIY with Donald\'uh | Episode -1 | Chitti', views: 34994 },
+  { id: 'G9Zo8HoM4Z0', title: 'Square | Chitti', views: 22595 },
+  { id: 'bc32XmqcX-c', title: 'Properties of Lines | Chitti', views: 25607 },
+  { id: 'tYlIGeb1gW0', title: 'Solvent Extraction | Chitti', views: 55498 },
+  { id: 'UhuVakxdm5M', title: 'How Google used set language ? | Chitti', views: 37409 },
+  { id: '-DVohpvjfwE', title: 'Plants as food | Chitti', views: 37555 },
+  { id: 'TnxR98waHjM', title: 'Cells Part - 2 | Chitti', views: 41500 },
+  { id: '4XIfouSgm0I', title: 'Cells | Chitti', views: 70336 },
+  { id: 'HL8iOlzOgzg', title: 'How karikalan used maths to build a Dam - part 3 | Chitti', views: 83932 },
+  { id: 'qplAVi3hU9Y', title: 'TIMMY - THE CLOCK | Chitti', views: 21002 },
+  { id: 'P6mV3JZmbuU', title: 'How karikalan used maths to build a Dam - Part 2 | Chitti', views: 98995 },
+  { id: 'EJokHoIJaGc', title: 'How karikalan used Maths to build a Dam - Introduction to Functions | Chitti', views: 171307 },
+  { id: '-QDWIs-EbW8', title: 'Occupation | Chitti', views: 17362 },
+  { id: 'thH2C98PdCQ', title: 'Heat & Temperature | Chitti', views: 58079 },
+  { id: 'm0Rb2_Ybc0k', title: 'Mendel\'s Law | Chitti', views: 118399 },
+  { id: 'fe1dWKVkM64', title: 'Parts of a Flower | Chitti', views: 19555 },
+  { id: 'ZBH460N6ubk', title: 'What is Estimation? | Chitti', views: 28015 },
+  { id: 'dhPGW_-qxZI', title: 'Science of Boiling | Chitti', views: 74168 },
+  { id: 'ivlk06sSMX8', title: 'Measurements - Part 2 | Chitti', views: 27944 },
+  { id: '71JyjHh9UxA', title: 'Measurements-Part 1| Chitti', views: 49272 },
+  { id: 'eV8ekIi_OpI', title: 'Solid, Liquid, Gas | Chitti', views: 28034 },
+  { id: '5XLhzVURfQE', title: 'Torque & Couple | Chitti', views: 135559 },
+  { id: 'SHDlwrw3IEg', title: 'How do plants gain their Mass? | Chitti', views: 36620 },
+  { id: 'odkd-Qi3TZk', title: 'நண்பனை சந்திக்க உதவிய கணிதம் ! | Chitti', views: 32339 },
+  { id: 'elr1xBTUunE', title: 'It\'s Chittified Sixer..! | Chitti', views: 21387 },
+  { id: 'n1rxL8SHWbg', title: 'How to name the Plants by our name? | Chitti', views: 46339 },
+  { id: '2fYHX_aj61A', title: 'Comparison of Measurements | Chitti', views: 17227 },
+  { id: 'BOTu-JsG8ts', title: 'What if Newton teaches Inertia ? | Chitti', views: 160420 },
+  { id: 'v7j6wViKis4', title: 'How to calculate Vehicle census in a city? | Chitti', views: 33723 },
+  { id: 'u2O9X8pABZE', title: 'How to dunk a Biscuit without breaking it ? | Vernier Caliper | Chitti', views: 172459 },
+  { id: 'cImS-lVB09A', title: 'How to track Sniper\'s Shot? | Chitti', views: 107283 },
+  { id: '4u_HBxGG_Wg', title: 'When Education Meets Entertainment | Chitti', views: 220781 },
+  { id: '2QiOmDTY1e4', title: 'முருகனுக்கு உதவிய Set Language | Chitti', views: 17689 },
+  { id: 'w0xDCdvZWk4', title: 'How Chitti can help Students? | Chitti', views: 13008 },
+  { id: 'yIKqyW_RweY', title: 'LMES 2.0 | The Next BIG THING..!', views: 33716 },
+  { id: '1QpjX2CxgbM', title: 'BigBang Kit Live Stream', views: 0 },
+];
+
+function thumbUrl(id){
+  return `https://i.ytimg.com/vi/${id}/hqdefault.jpg`;
+}
+
+const gridEl = document.getElementById('grid');
+
+function renderGrid(){
+  const list = SHORTS;
+  gridEl.innerHTML = list.map(v => {
+    const thumb = thumbUrl(v.id);
+    return `
+    <a class="card short-card" href="https://www.youtube.com/shorts/${v.id}" target="_blank">
+      <div class="thumb short-thumb">
+        <img src="${thumb}" alt="${v.title}">
+      </div>
+      <div class="card-body">
+        <div class="card-title">${v.title}</div>
+        <div class="card-meta"><span>Watch →</span></div>
+      </div>
+    </a>`;
+  }).join('');
+}
+renderGrid();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jayanth Prakash R — LMES Academy Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bp-navy:#101f38;
+    --bp-navy-deep:#0a1526;
+    --bp-blue:#4a7fc4;
+    --bp-blue-soft:#6f9bd6;
+    --bp-line:#25406a;
+    --chalk:#eef1ea;
+    --muted:#93a8c9;
+    --amber:#e8a33d;
+    --amber-dim:#a97a3e;
+    --radius:2px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{
+    background:linear-gradient(160deg, #0f1c2e 0%, #14263d 45%, #0a1526 100%);
+    background-attachment: fixed;
+    color:var(--chalk);
+    font-family:'IBM Plex Sans', sans-serif;
+    line-height:1.5;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+
+  nav{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:22px 0; border-bottom:1px solid var(--bp-line);
+  }
+  .logo{
+    font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:1.15rem;
+    letter-spacing:0.5px; display:flex; align-items:center; gap:10px;
+  }
+  .logo .mark{
+    width:12px; height:12px; border:2px solid var(--amber); transform:rotate(45deg);
+  }
+  .nav-cta{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
+    color:var(--bp-navy); background:var(--amber);
+    padding:9px 16px; border-radius:var(--radius); text-decoration:none;
+    letter-spacing:0.3px; font-weight:500;
+    transition:opacity .15s ease;
+  }
+  .nav-cta:hover{opacity:0.85;}
+  .nav-count{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem;
+    color:var(--amber); border:1px solid var(--bp-line);
+    padding:9px 16px; border-radius:var(--radius); letter-spacing:0.3px;
+  }
+
+  .hero{
+    padding:72px 0 56px; border-bottom:1px solid var(--bp-line);
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--amber);
+    letter-spacing:1.5px; text-transform:uppercase; margin-bottom:18px; display:block;
+  }
+  h1{
+    font-family:'Space Grotesk', sans-serif; font-weight:600;
+    font-size:clamp(2rem, 4vw, 2.9rem); line-height:1.15; margin-bottom:20px;
+  }
+  h1 em{color:var(--bp-blue-soft); font-style:normal; border-bottom:2px dashed var(--amber-dim);}
+  .hero p{color:var(--muted); font-size:1.02rem; max-width:46ch; margin-bottom:28px;}
+  .channel-name{color:var(--amber) !important; font-family:'IBM Plex Mono', monospace; font-size:0.9rem; letter-spacing:0.4px; margin-bottom:8px !important;}
+  .role-title{color:var(--bp-blue-soft) !important; font-family:'IBM Plex Mono', monospace; font-size:0.85rem; letter-spacing:0.4px; margin-bottom:6px !important;}
+  .video-count{color:var(--muted) !important; font-family:'IBM Plex Mono', monospace; font-size:0.8rem; letter-spacing:0.4px; margin-bottom:8px !important;}
+  .stat-row{display:flex; gap:0; border:1px solid var(--bp-line);}
+  .stat{
+    flex:1; padding:14px 16px; border-right:1px solid var(--bp-line);
+  }
+  .stat:last-child{border-right:none;}
+  .stat b{
+    display:block; font-family:'Space Grotesk', sans-serif; font-size:1.3rem; color:var(--chalk);
+  }
+  .stat span{font-family:'IBM Plex Mono', monospace; font-size:0.68rem; color:var(--muted); text-transform:uppercase; letter-spacing:0.5px;}
+
+  .featured-section{padding:40px 0 8px;}
+  .featured-heading{
+    font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:1.3rem;
+    margin-bottom:4px; display:flex; align-items:center; gap:10px;
+  }
+  .featured-heading .mark{
+    width:9px; height:9px; border:2px solid var(--amber); transform:rotate(45deg); flex:none;
+  }
+  .featured-sub{
+    font-family:'IBM Plex Mono', monospace; font-size:0.78rem; color:var(--muted);
+    margin-bottom:20px; display:block;
+  }
+  .featured-videos-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr));
+    gap:20px; margin-bottom:12px;
+  }
+  .featured-shorts-grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));
+    gap:20px; margin-bottom:12px;
+  }
+  .featured-card{
+    position:relative; border:1px solid var(--bp-line); background:rgba(74,127,196,0.04);
+    text-decoration:none; display:block; overflow:hidden; border-radius:var(--radius);
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .featured-card:hover{border-color:var(--bp-blue-soft); transform:translateY(-2px);}
+  .featured-card .thumb{
+    position:relative; background:linear-gradient(135deg, var(--bp-navy-deep), var(--bp-line));
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .featured-videos-grid .featured-card .thumb{aspect-ratio:16/9;}
+  .featured-shorts-grid .featured-card .thumb{aspect-ratio:9/16;}
+  .featured-card .thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+  .featured-card .play{
+    position:absolute; width:44px; height:44px; border:1px solid var(--amber); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; color:var(--amber);
+    font-size:0.75rem; background:rgba(10,21,38,0.55); z-index:1;
+  }
+  .featured-title{
+    padding:10px 12px; font-size:0.85rem; font-weight:500; color:var(--chalk);
+    line-height:1.35; border-top:1px solid var(--bp-line);
+  }
+  .insta-callout{
+    display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+    border:1px solid var(--bp-line); background:rgba(232,163,61,0.06);
+    padding:16px 20px; border-radius:var(--radius); margin:28px 0 12px;
+  }
+  .insta-callout p{
+    color:var(--chalk); font-size:0.92rem; margin:0; flex:1; min-width:220px;
+  }
+  .insta-callout a{
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem;
+    color:var(--bp-navy); background:var(--amber);
+    padding:9px 16px; border-radius:var(--radius); text-decoration:none;
+    letter-spacing:0.3px; font-weight:500; white-space:nowrap;
+  }
+
+  .filter-section{padding:40px 0 8px;}
+  .filter-label{
+    font-family:'IBM Plex Mono', monospace; font-size:0.72rem; color:var(--muted);
+    text-transform:uppercase; letter-spacing:1px; margin-bottom:14px; display:block;
+  }
+  .filters{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:8px;}
+  .filter-btn{
+    font-family:'IBM Plex Mono', monospace; font-size:0.8rem;
+    background:transparent; color:var(--muted); border:1px solid var(--bp-line);
+    padding:8px 14px; border-radius:var(--radius); cursor:pointer;
+    transition:all .15s ease;
+  }
+  .filter-btn:hover{border-color:var(--bp-blue-soft); color:var(--chalk);}
+  .filter-btn.active{
+    background:var(--amber); border-color:var(--amber); color:var(--bp-navy-deep); font-weight:500;
+  }
+
+  .grid{
+    display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr));
+    gap:22px; padding:32px 0 64px;
+  }
+  .card{
+    position:relative; border:1px solid var(--bp-line); background:rgba(74,127,196,0.04);
+    transition:border-color .15s ease, transform .15s ease;
+    text-decoration:none; display:flex; flex-direction:column;
+  }
+  .card:hover{border-color:var(--bp-blue-soft); transform:translateY(-2px);}
+  .card::before, .card::after,
+  .card .thumb::before, .card .thumb::after{
+    content:""; position:absolute; width:10px; height:10px;
+    border-color:var(--amber); opacity:0; transition:opacity .15s ease;
+  }
+  .card:hover::before, .card:hover::after,
+  .card:hover .thumb::before, .card:hover .thumb::after{opacity:1;}
+  .card::before{top:-1px; left:-1px; border-top:2px solid; border-left:2px solid;}
+  .card::after{top:-1px; right:-1px; border-top:2px solid; border-right:2px solid;}
+  .card .thumb::before{bottom:-1px; left:-1px; border-bottom:2px solid; border-left:2px solid;}
+  .card .thumb::after{bottom:-1px; right:-1px; border-bottom:2px solid; border-right:2px solid;}
+
+  .thumb{
+    position:relative; aspect-ratio:9/16; background:linear-gradient(135deg, var(--bp-navy-deep), var(--bp-line));
+    display:flex; align-items:center; justify-content:center; overflow:hidden;
+  }
+  .thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+  .thumb .play{
+    width:44px; height:44px; border:1px solid var(--muted); border-radius:50%;
+    display:flex; align-items:center; justify-content:center; color:var(--muted);
+    font-size:0.7rem; z-index:1;
+  }
+  .thumb .grid-overlay{
+    position:absolute; inset:0; opacity:0.25;
+    background-image:linear-gradient(var(--bp-blue) 1px, transparent 1px), linear-gradient(90deg, var(--bp-blue) 1px, transparent 1px);
+    background-size:18px 18px;
+  }
+  .card-body{padding:14px 16px 16px; display:flex; flex-direction:column; gap:8px; flex:1;}
+  .card-tag{
+    font-family:'IBM Plex Mono', monospace; font-size:0.66rem; color:var(--amber);
+    text-transform:uppercase; letter-spacing:0.6px;
+  }
+  .card-title{font-size:0.88rem; font-weight:500; color:var(--chalk); line-height:1.35;}
+  .card-meta{
+    margin-top:auto; font-family:'IBM Plex Mono', monospace; font-size:0.7rem;
+    color:var(--muted); display:flex; justify-content:space-between; align-items:center; padding-top:6px;
+  }
+  .card-meta .rank{color:var(--bp-blue-soft);}
+
+  .footer-cta{
+    border-top:1px solid var(--bp-line); padding:56px 0; text-align:center;
+  }
+  .footer-cta h2{font-family:'Space Grotesk', sans-serif; font-size:1.5rem; margin-bottom:12px;}
+  .footer-cta p{color:var(--muted); margin-bottom:24px;}
+  .big-cta{
+    display:inline-block; font-family:'IBM Plex Mono', monospace; font-size:0.85rem;
+    background:var(--bp-blue); color:var(--chalk); padding:14px 28px;
+    border-radius:var(--radius); text-decoration:none; letter-spacing:0.4px;
+    transition:background .15s ease;
+  }
+  .big-cta:hover{background:var(--bp-blue-soft);}
+  footer{
+    text-align:center; padding:24px 0 40px; font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem; color:var(--bp-line);
+  }
+
+  @media(max-width:820px){
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <nav>
+    <div class="logo"><span class="mark"></span>Jayanth Prakash R</div>
+    <span class="nav-count">340+ Videos</span>
+  </nav>
+
+  <section class="hero">
+    <div>
+      <h1>Jayanth Prakash R</h1>
+      <p class="role-title">Content Strategy Lead &amp; Channel Manager</p>
+      <p class="channel-name">LMES Academy</p>
+    </div>
+  </section>
+
+  <section class="featured-section">
+    <div class="featured-heading"><span class="mark"></span>Content Leadership Highlights</div>
+    <span class="featured-sub">// Top long-form uploads from the LMES Academy channel</span>
+    <div class="featured-videos-grid">
+      <a class="featured-card" href="https://youtu.be/sLEfxLsPVyk" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/sLEfxLsPVyk/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">The Truth About Period Pain | #normalizeperiods | Women&#x27;s Day: Invest in Women| #IWD2024.</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/zxlIUoy1W-U" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/zxlIUoy1W-U/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Decoding Enthiran&#x27;s Stunt | #actionreaction episode - 3 | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/lPdbZnzaNOQ" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/lPdbZnzaNOQ/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">How 3D Glass Works in Deadpool Movie? | Polarization | TAMIL | LMES | #deadpoolvswolverine</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="featured-section">
+    <div class="featured-heading"><span class="mark"></span>High-Impact Content</div>
+    <span class="featured-sub">// Highest-viewed shorts, built for scroll-stopping reach</span>
+    <div class="featured-shorts-grid">
+      <a class="featured-card" href="https://youtube.com/shorts/Z7hyMha7yoA" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/Z7hyMha7yoA/hqdefault.jpg" alt="Featured short"><div class="play">▶</div></div>
+        <div class="featured-title">Mirror உடையுமா உடையாதா ? Open Challenge ! Conservation of Momentum</div>
+      </a>
+      <a class="featured-card" href="https://youtube.com/shorts/92KyXgiu6KY" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/92KyXgiu6KY/hqdefault.jpg" alt="Featured short"><div class="play">▶</div></div>
+        <div class="featured-title">What happens to a bullet that is fired vertically upward in a celebration? Air Pistol</div>
+      </a>
+      <a class="featured-card" href="https://youtube.com/shorts/B2Wt8BXTwp4" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/B2Wt8BXTwp4/hqdefault.jpg" alt="Featured short"><div class="play">▶</div></div>
+        <div class="featured-title">Balloon 🎈 VS Liquid Nitrogen ❄️ ! Charles&#x27;s Law ! Danger ☠️💀 !</div>
+      </a>
+      <a class="featured-card" href="https://youtube.com/shorts/dYAGt5y81t0" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/dYAGt5y81t0/hqdefault.jpg" alt="Featured short"><div class="play">▶</div></div>
+        <div class="featured-title">Can You Break This Flower? Open Challenge| LMES #experiment #science</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="featured-section">
+    <div class="featured-heading"><span class="mark"></span>Main Video Showcase</div>
+    <span class="featured-sub">// Full set of featured long-form uploads</span>
+    <div class="featured-videos-grid">
+      <a class="featured-card" href="https://youtu.be/sLEfxLsPVyk" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/sLEfxLsPVyk/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">The Truth About Period Pain | #normalizeperiods | Women&#x27;s Day: Invest in Women| #IWD2024.</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/zxlIUoy1W-U" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/zxlIUoy1W-U/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Decoding Enthiran&#x27;s Stunt | #actionreaction episode - 3 | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/lPdbZnzaNOQ" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/lPdbZnzaNOQ/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">How 3D Glass Works in Deadpool Movie? | Polarization | TAMIL | LMES | #deadpoolvswolverine</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/eLmIAgDYX3I" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/eLmIAgDYX3I/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">How The TIK TIK TIK Movie Should Have Ended | SPOOF | LMES | #actionreaction</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/eI6K_5Ls3nY" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/eI6K_5Ls3nY/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">How solar eclipse made #Einstein famous? | Tamil | #LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/NDUxCJ0AY1k" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/NDUxCJ0AY1k/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">How Cholas Sailed against the Wind ? | Ponniyin Selvan 2 | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/V80T5rNuk2s" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/V80T5rNuk2s/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Ennore Oil Spill Problem is not yet Solved ! (investigative Documentary) With Scientific Solutions !</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/1XTIqwBsL6o" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/1XTIqwBsL6o/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">This SIMPLE question got sir CV Raman a Nobel Prize | இராமன் விளைவு | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/dYYx6oC2aYE" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/dYYx6oC2aYE/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Decoding AK&#x27;s Vivegam Dam Jump | Episode - 02 | #ActionReaction | Tamil | LMES #vivegamdamjump</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/kqAuBIYMMvM" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/kqAuBIYMMvM/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Recreating RRR - Jail BREAK scene | #actionreaction episode - 4 | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/iDsXBZjZoh8" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/iDsXBZjZoh8/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">How does DRS work in cricket? | Tamil | #LMES #ipl #ipl2022 #DRS #dhoni</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/KMccL9rf3bQ" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/KMccL9rf3bQ/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Vacuum Bomb - Father of all Bombs | Tamil | #LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/-vfL8CjPDxc" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/-vfL8CjPDxc/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Is Your Child Struggling to read? | DLearners | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/YMjD46BVCUc" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/YMjD46BVCUc/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Cobra movie Scientific mistakes ? | Spoof | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/m-ry2Qtl1A0" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/m-ry2Qtl1A0/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Why do I get Butterflies when I see my Crush? | #unnoticed  | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/XVx6ruFpRfQ" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/XVx6ruFpRfQ/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Turn any Phone into Wireless Charging Phone |Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/kqWNoq52ajM" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/kqWNoq52ajM/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">This is Why Wet Clothes L😳😳K darker ! | Unnoticed 2.0 | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/F-KHZuiLj7U" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/F-KHZuiLj7U/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Sunscreen- க்கும் சந்திரயான் 3 - க்கும் சம்பந்தம் இருக்கா? | #chandrayaan3 | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/I9zMp-76L80" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/I9zMp-76L80/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">FLASK kulla apidi ena dha iruku ? How does a flask work ?</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/cLw5TFwvMUQ" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/cLw5TFwvMUQ/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Breaking - சென்னையை ஏன் அடிக்கடி புயல் தாக்குகிறது? | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/InqX_3ms1PU" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/InqX_3ms1PU/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Why One Should NOT consume Alcohol OR Kallasarayam !  Scientific Investigation</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/hmb8ogMhlAo" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/hmb8ogMhlAo/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Possible reason behind General Bipin Rawat&#x27;s Helicopter Crash! | #Blackbox | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/t394FKvfae8" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/t394FKvfae8/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">How DOLBY Works? | LMES | Tamil</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/PsSCw4Y9XGg" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/PsSCw4Y9XGg/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">ஏன் TRAIN WHEEL இந்த SHAPE-ல இருக்கு? Train Wheel Science | Unnoticed 2.0 | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/-am3geU1saQ" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/-am3geU1saQ/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">கையும் களவுமாக சிக்கிய அதிகாரி! | Anticorruption Shortfilm | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/T4YJIo9uh64" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/T4YJIo9uh64/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Digital Pickpocket Scam Exposed: RFID &amp; NFC - Pros &amp; Cons | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/oHu7aObHgrs" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/oHu7aObHgrs/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Why Dhoni Entry Sounds 10X Louder? | Logarithm explained | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/V8AwGm_8w4k" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/V8AwGm_8w4k/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">இந்த machine future election-அ மாற்றி அமைக்குமா? | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/me7HGPUzLuw" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/me7HGPUzLuw/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">EB bill குறையுமா? குறையாதா? Kalpakkam Nuclear Achievement | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/HJ_Et2Ez3k4" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/HJ_Et2Ez3k4/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">The tech that saved 300+ lives | RAT Technology Explained | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/KKE5zDDR_gg" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/KKE5zDDR_gg/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Pharmacy&#x27;ல இத இன்னுமும் வித்துட்டு இருக்காங்க | Doctor vs court | TAMIL</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/cOtgmhrzmwc" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/cOtgmhrzmwc/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">இந்தியாவில் செயற்கை மழை | Cloud Seeding | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/HHq-N0LGlkg" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/HHq-N0LGlkg/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">முட்டையை உடைக்க முடியாதா? Why can&#x27;t we break an egg? Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/-bePcfEsIc4" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/-bePcfEsIc4/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Fried Rice போட்றது-ல Science&#x27;ah ?! Experiment Went WRONG</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/33luqcQkpJw" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/33luqcQkpJw/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Duracell Ad உண்மையா illa Scam ah😱?  | A Deep Analysis #science #scams #experiment</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/UbhvtxG8uZg" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/UbhvtxG8uZg/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">This Sand Battery SOLVEs All Our Energy Problems ?</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/EThMNpUdsrU" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/EThMNpUdsrU/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Food-ல இருக்குற Iron Magnet-ல ஒட்டுமா ? Shocking Truth Revealed!</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/M7Brg-In3oE" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/M7Brg-In3oE/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Apple - Good ? or Bad ? #thriller</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/ClbhqhZSCg0" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/ClbhqhZSCg0/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">HOW to Beat Usain Bolt using MATHS ? | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/-EAJzMo-5l0" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/-EAJzMo-5l0/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">How Pregnancy test kit works? | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/aJn2Oze8T6A" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/aJn2Oze8T6A/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">Science Behind Wheelie | Valimai | Ajith Kumar | Tamil | LMES</div>
+      </a>
+      <a class="featured-card" href="https://youtu.be/eTBzfk-Hmjw" target="_blank">
+        <div class="thumb"><img src="https://i.ytimg.com/vi/eTBzfk-Hmjw/hqdefault.jpg" alt="Featured video"><div class="play">▶</div></div>
+        <div class="featured-title">How We Created a Fake Traffic Jam! | Tamil | LMES</div>
+      </a>
+    </div>
+  </section>
+
+  <section class="featured-section">
+    <div class="featured-heading"><span class="mark"></span>Projects I Led</div>
+    <span class="featured-sub">// End to end content showcase</span>
+  </section>
+
+  <section class="grid" id="grid"></section>
+
+<footer>JAYANTH PRAKASH R — LMES ACADEMY PORTFOLIO</footer>
+</div>
+
+<script>
+const SHORTS = [
+  { id: 'Z7hyMha7yoA', title: 'Mirror உடையுமா உடையாதா ? Open Challenge ! Conservation of Momentum', views: 29499184 },
+  { id: '92KyXgiu6KY', title: 'What happens to a bullet that is fired vertically upward in a celebration? Air Pistol', views: 11478863 },
+  { id: 'B2Wt8BXTwp4', title: 'Balloon 🎈 VS Liquid Nitrogen ❄️ ! Charles\'s Law ! Danger ☠️💀 !', views: 8135029 },
+  { id: 'dYAGt5y81t0', title: 'Can You Break This Flower? Open Challenge| LMES #experiment #science', views: 6145354 },
+  { id: 'LPS4rxeKoAo', title: 'What makes a tattoo permanent? | #shorts | Tamil | #LMES', views: 4024010 },
+  { id: 'W6aY9P4QzdM', title: 'குண்டு பல்பு💡, எரியுமா ✅ எரியாதா ❌ ?! Open Challenge #science #experiment', views: 4017681 },
+  { id: 'XXf5ymtg7Lo', title: 'ராமர் கல்லு மிதக்குமா ?🪨🐿️Why Ram Stone Floats On Water ? #experiment #science', views: 3417905 },
+  { id: 'ifi65OzEgyI', title: 'Found a way to clean the iron box!', views: 3182836 },
+  { id: 'vLDQuSA_aKY', title: 'கண்ணுல புழு மாதிரி தெரியுதா? சாதாரணமா? ஆபத்தா?', views: 3066317 },
+  { id: '7T0ImLBto2s', title: 'Fire in the Hand! | please don\'t try this at home! ❌ | Tamil | LMES', views: 3042634 },
+  { id: 'z8u7MkYVBSw', title: 'Why circle is the BEST shape? | Tamil | LMES', views: 2593252 },
+  { id: 'BKsGCANrCRk', title: 'Can You Fill This in 30 Seconds? Science Challenge | Bernoulli\'s Principle | LMES #experiment', views: 2355344 },
+  { id: 'wMatORQNygA', title: 'Why We Should Not Boil Milk? |#shorts |Tamil | #LMES', views: 2326236 },
+  { id: 'DiQee40ws2g', title: 'Can Binoculars Really See 6 km? | Pushpa Movie Fact Check!', views: 1997098 },
+  { id: 'tNTWpQ1Ds1w', title: 'Why do theatre screens have holes? | #shorts |Tamil | #LMES', views: 1810524 },
+  { id: 'B5O6RYT2NDc', title: 'Tamilnadu Miniature artist placed Tricolour in his eye!', views: 1679241 },
+  { id: 'iT7zEGOPug4', title: 'Battery-ஐ குப்பையில் போடாதீர்கள் 🔋❌❌ 🚮 EXPLOSION ALERT !', views: 1661753 },
+  { id: 'MSbKYNcEI6g', title: 'Egg\'அ உடைக்க முடியுமா? Can You Break an Egg with Your Hand ? Open Challenge', views: 1568664 },
+  { id: 'BoymAQCcSPI', title: 'Spring கீழ விழுமா விழாதா ? public Challenge !', views: 1555774 },
+  { id: 'sFTAqK54fWY', title: 'Magical கருணைக்கிழங்கு ! Will it fall  ?', views: 1540528 },
+  { id: 'PbHuZt2fOP8', title: 'Secrets of the Honeycomb Structure ? #lmes', views: 1464921 },
+  { id: '62ewCJiATJ8', title: 'Why sweet corn won\'t pop? | Tamil | LMES', views: 1457062 },
+  { id: '8zhWI9eXddI', title: 'Tractor Wheel ல தண்ணியா?', views: 1448423 },
+  { id: 'm_ipre1qZa0', title: 'கரையான் என்கின்ற மனித வெடிகுண்டு | TERMITE vs Suicide Bomber | LMES', views: 1401871 },
+  { id: 'KaNbLh5XbD8', title: 'How Do Jellyfish Function Without A Heart Or Brain? | #shorts | Tamil | #LMES', views: 1393267 },
+  { id: 'akGidUFmPC0', title: 'What is meant by Dry Wash', views: 1221285 },
+  { id: '6oJDFy0RTvw', title: 'Overnight la 2.5kg weight ஏறுமா? Olympic Wrestling Controversy', views: 1213547 },
+  { id: 'v2ipptUTOC4', title: '⚠️ Costliest Experiment at 30,000 ft.to prove a Science Concept ! #experiment #lmes', views: 1155729 },
+  { id: 'RvX9s0SRWAU', title: 'நீலாம்பரி Cooling Glass 😎 | Unpolarized Glasses', views: 1155712 },
+  { id: 'upFQ3LqPXF4', title: 'why do wounds ITCH? | ஏன் அரிக்குது?? #biology #scienceshorts', views: 1150758 },
+  { id: 'nJOY6AvZL3I', title: 'Clear Ice Cube 🧊 எப்படி ?? How to Make Crystal Clear Ice Cubes At Home ?', views: 1135239 },
+  { id: '6m5XSw85A_E', title: 'Why do ballpoint pens leak in your pocket? |#shorts | Tamil | LMES #ballpointpen', views: 1101993 },
+  { id: 'kFL-eQfnMNM', title: 'Pick up egg yolk with garlic. Science Experiment.', views: 1081749 },
+  { id: 'RZ49YxMMw7M', title: 'Did you know? Antarctica has 12 Time Zones! | #shorts |Tamil | LMES', views: 1076440 },
+  { id: 'KIp-qglgjKU', title: 'You Can\'t Hit a Bottle Cap with One Eye Closed! 🤯 Here\'s Why!', views: 1063416 },
+  { id: 'on9Bg82qnuY', title: 'Why is Seawater Salty? | #shorts |Tamil | #LMES', views: 1056355 },
+  { id: 'qfG7Eo5a2Co', title: 'Paperஅ Straight அ கிழிக்குறது Possible ah? Science Behind it', views: 1037631 },
+  { id: '74wwlKwFc_k', title: 'Answer this question! Math Challenge', views: 1027158 },
+  { id: 'EAb-VFGbfGI', title: 'Why SPIDER is the BEST Civil Engineer❓❓🕸️', views: 996603 },
+  { id: 'ewLzOLAftYQ', title: 'Deep Space Food Challenge | #shorts | Tamil | LMES', views: 984935 },
+  { id: '07ZsUrAItms', title: 'How BABY Breathe inside Mother\'s womb | தாயின் வயிற்றில் குழந்தை எப்படி சுவாசிக்கிறது?', views: 969220 },
+  { id: 'i_2YOTWJQIw', title: 'Honey is Basically Bee Vomit! | #shorts | Tamil | #LMES', views: 959165 },
+  { id: 'MlWILuk_1w8', title: 'Why does turning airplane mode on and off make phones\' internet faster? | #shorts |Tamil | #LMES', views: 905301 },
+  { id: 'OhSBs3NiI28', title: 'Why F1 Car Tyres have no patterns? | #shorts | Tamil | LMES', views: 883856 },
+  { id: '-QIszwQX5DA', title: 'Why do we Dry Wash our Silk Sarees? | #shorts |Tamil | LMES', views: 881986 },
+  { id: 'jqm1ummZR9c', title: 'How to Remove Permanent Marker? | Tamil | LMES', views: 880552 },
+  { id: 'i6Y01I5DlmM', title: 'Why do some lorry tyres do not touch the ground? | LMES', views: 878374 },
+  { id: '7hzjB6Rc4V0', title: 'How does CPR Works? | #shorts | Tamil | LMES #CPR', views: 878013 },
+  { id: 'N7Po31n9Dkk', title: 'Why should We not 🚫 drink water after Eating Sugarcane? | Tamil | LMES | Happy Pongal', views: 875623 },
+  { id: 'v1A7upXM004', title: 'ஊதுபத்தி-ல ஏன் இப்படி நடக்குது? | Shorts | Tamil | LMES', views: 825637 },
+  { id: 'oZFW7LFknmw', title: 'Why Do House Flies Always Rub their Legs? | #shorts | Tamil | #LMES', views: 816113 },
+  { id: 'UKl6nNW6Z7E', title: 'How insecticide kills cockroaches ? | pyrethroid |tamil | LMES', views: 805107 },
+  { id: 'zczUC9uO1-c', title: 'Office Chair 💺வெடிக்குமா 💥 ??! Chair Explosion 💥', views: 802904 },
+  { id: '1tOO7G0SvVg', title: 'The Genius Idea Behind Train Coupling System', views: 759508 },
+  { id: 'BC-yd5McBzU', title: 'வாழைப்பழங்களை தொங்கவிடுவதற்கான காரணம்? Why bananas are hung ?', views: 721392 },
+  { id: 'tx4hNaX3dm8', title: 'Upside down glass | Science Challenge | LMES | TAMIL #experiment', views: 704724 },
+  { id: 's-EcHyNUu3s', title: 'No more Maradona "hand of god" | VAR| Sensor | Al- rhila| Tamil', views: 680650 },
+  { id: 'FQXTJjbnNxc', title: 'Why Neeraj Can\'t Break This Record ? 🥇 Olympic Javelin Throw', views: 675048 },
+  { id: 'Zk_sq82gob4', title: 'Candle - ஐ இப்படியும் எரிய வைக்கலாம் | Tamil | LMES', views: 655931 },
+  { id: '21FjA6RrW74', title: 'Can we Break this Scale ? | science challenge', views: 642942 },
+  { id: 'xLucn372yVs', title: 'Reason behind bat checking in IPL #ipl #dhoni #cricket', views: 635026 },
+  { id: 'TMYM1Jr2QnM', title: 'How "Waterproof" is Your Mobile ? IP Ratings Explained !', views: 630714 },
+  { id: '2G5rbRmAWnk', title: 'Why do snipers adjust their rifles before taking a shot? #sniper', views: 625329 },
+  { id: 'ctdUe0CyHf0', title: 'Guess the Colour ?Pink or Grey ?🤯  Open Challenge', views: 610462 },
+  { id: 'EjpQ2rcSlaM', title: 'தல Dhoni-கு இது தெரியாது போல!', views: 606608 },
+  { id: 'e7YjlIcNoJQ', title: 'Recreating RRR Jail Break Scene | Tamil | LMES', views: 603341 },
+  { id: 'JAQ-TduDpyE', title: 'How Balloons Burst Without Touching 🎈⚠️ #experiment|  LMES', views: 572955 },
+  { id: 'MllK6uUIRyQ', title: 'STR சொன்னது correct\'ah🧐 ?! SCIENTIFICALLY , Correct dhan ✅#livingbeing #simbu #str #science #lmes', views: 567745 },
+  { id: 'tXRzKxgafIg', title: '⨂Don’t use this ASBESTOS sheet | ஆஸ்பெஸ்டாஸ் இன் ஆபத்துகள் | LMES | SHORTS TAMIL', views: 561531 },
+  { id: 'jbtqSDRNFzI', title: 'Why Crude oil extraction doesn\'t break the ground?!! #lmes #tamil', views: 544015 },
+  { id: 'MMIT_VnNV-s', title: 'Why Do "Touch-Me-Not "Leaves Close When Touched?தொட்டாற் சிணுங்கி |Tamil | LMES #shorts', views: 540726 },
+  { id: 'K04vKnNPLNg', title: 'Engine oil - அ Chain oil - ஆ use பண்ணலாமா? | Tamil | LMES', views: 539129 },
+  { id: 'HOo3HQipSYs', title: 'Why do we get #pimples ? | #shorts | Tamil | LMES #pimpleproblem', views: 510608 },
+  { id: 'IhdvuJuyrqc', title: 'How to remove a Permanent Tattoo? Laser vs. Tattoo ☠️', views: 507794 },
+  { id: 'VUOxl2Yrr0w', title: 'Does it really take 50000 years for the RAREST Green Comet to revolve around the Sun?', views: 493149 },
+  { id: 'I_l3oTM9evE', title: 'Why Ronaldo hates FIFA World Cup 2022 ball - Al rhila?', views: 492995 },
+  { id: 'eqYF9YzdU48', title: 'Science Behind Perfect Ayudha Pooja Cleaning 🧹', views: 492624 },
+  { id: '1MiFEevVgvs', title: 'எறும்பு Veg ah Non-Veg ah? #lmes #diet', views: 487396 },
+  { id: 'xEqcBcNrQKA', title: 'இது தெரியாம Concert\'ku போகாதீங்க? Ringing Sound in EARS #lmes', views: 483604 },
+  { id: 'JqbHOyKFW2Q', title: 'Why do we have #dandruff ? #shorts 🙄 | Tamil | #LMES', views: 480925 },
+  { id: 'X_zpHJ68T_E', title: 'பூண்டு வெடி Speciality  | LMES', views: 473290 },
+  { id: 'DNRXZkovWqQ', title: 'Bajaj CNG bike la, இத Notice பண்ணீங்களா?', views: 472874 },
+  { id: '8M6nTNNWGwM', title: '🔵Blue Detergents: Marketing Trick or Science?', views: 468486 },
+  { id: '9NFGu--QoaQ', title: 'The Pirate Water-Walk Trick Explained!', views: 465984 },
+  { id: 'D8Yjm5ULYh8', title: '🌋✈️Why Delhi Flights Get Cancelled During Volcanic Eruptions!', views: 460474 },
+  { id: 'rAYItJl0Bto', title: 'How are cotton candy made? | #shorts | Tamil | LMES #cottoncandy', views: 452863 },
+  { id: 'P7BUPOjNpLk', title: 'Why does alcohol affect the liver instead of the stomach? Alcohol சோதனைகள் ☠️⚠️', views: 439112 },
+  { id: 'xIAmFwW795E', title: '150-Year-Old Chess Puzzle Solved! | #shorts | Tamil | LMES', views: 437591 },
+  { id: 'FixYkqadVIs', title: 'Why twin babies by Surrogacy ?| Tamil | LMES', views: 437512 },
+  { id: 'Xs-vlZ_H8YI', title: 'How to make the air stay inside the open balloon? | #shorts | Tamil | LMES', views: 430225 },
+  { id: 'YF4ODQkpf18', title: 'Room Spray அடிச்சா நெருப்பு வருமா? | Tamil | LMES', views: 428284 },
+  { id: 'Oy-wVkb9148', title: 'Why Does It Feel So Good To Scratch An Itch? | #shorts |Tamil | #LMES', views: 407293 },
+  { id: 'qkegKH82t3A', title: 'The Science Of Election Ink - Indelible Ink #yourvotematters', views: 402009 },
+  { id: '_n8Tt0E96MQ', title: 'Why do we have Earwax ? Tamil | LMES', views: 399749 },
+  { id: '9dV7BNx9hR0', title: 'Why we cannot see AVATAR 2 in 3D ? Tamil | LMES...', views: 386154 },
+  { id: '0LX5OyRarNk', title: 'Does our body explode in space ?', views: 385959 },
+  { id: 'akQIe0ofgA0', title: 'Do Bulls really HATE Red Colour ❓ | Tamil | LMES', views: 380756 },
+  { id: 'vt6lgUB0A3U', title: 'Candle - ஐ இப்படியும் அனைக்கலாம் | #Shorts | Tamil | LMES', views: 371616 },
+  { id: 'Z0R532vvaik', title: 'Why are rear tires bigger than the front in Bikes? | #shorts | Tamil | LMES #biketyre', views: 370788 },
+  { id: '3Be7g4jAGvs', title: 'Why Dhoni firing the chair?', views: 370159 },
+  { id: 'Fj02pwA7vNc', title: 'Olympic Athletes\'கு Asthma இருக்கா? Noah Lyles Collapsed', views: 356120 },
+  { id: 'EYssg6XjML0', title: 'Why this paper is not burning? | #Shorts | Tamil | LMES', views: 351566 },
+  { id: 'GqfO0RCH100', title: 'Can a Piece of Bread Solve a Math Problem? 🔢🍞', views: 347552 },
+  { id: 'gnpubwEN0SI', title: 'Do you know? The Sun doesn\'t set in this country! | #shorts | Tamil | LMES #sunset', views: 327931 },
+  { id: 'XhmVY-K-cXs', title: 'Double Rainbow 🌈🌈 in Chennai📍 A Rare Phenomenon??', views: 318895 },
+  { id: 'AP5klO4XgAM', title: 'Do We Really Get Vitamin D from Sun ? 🤔 ☀️', views: 318618 },
+  { id: '9-2tAIpBB-k', title: 'Airshow ✈️ Marina Beach  🏖 How Jets Paint the Sky with Colours 🇮🇳✈️  #airshow 🌈', views: 316464 },
+  { id: 'DttkPwARqRE', title: 'Explosion 💥 using Metal ⚠️ ! கல்லு  வெடிக்குமா ? 💥🧨', views: 315325 },
+  { id: 'BYpzhoKe1Mw', title: 'Rain cannot stop this stadium!', views: 308279 },
+  { id: 'Gdl2lfELd5w', title: 'உலகத்தின் சிறிய  Particle Accelerator 🤏🏼 Cures Cancer 🤯 ?!', views: 307339 },
+  { id: 'UGhT0AcUeRU', title: 'Spider REACTS to Camera Touch ? 🕷️ Real or Fake ? 🤔', views: 303260 },
+  { id: 'KMCCW5s30aA', title: 'Balloon in Hot & Cold Water! | #Shorts | Tamil | LMES', views: 298344 },
+  { id: 'Ex54A5eg_rA', title: 'How to Prepare Carbon dioxide Gas? | #Shorts | Tamil | LMES', views: 296123 },
+  { id: 'fDZAAKuxACE', title: 'Why Do Bus Brakes Make a Hissing Sound when parked? #automobile #bus', views: 291730 },
+  { id: 'oXVyvc9DhPQ', title: 'Kicker ஏன்டா எடுதிங்க ? | LMES', views: 290608 },
+  { id: 'jKMTkAIh_0s', title: 'Is It Possible to \'See\' With Your Ears?', views: 287914 },
+  { id: '0HAWrdlN5HA', title: 'Why Do Planes Fly So High? |#shorts |Tamil | LMES', views: 285096 },
+  { id: 'fc0BhD7ANi0', title: 'Ink + Flashlight = Burning Sensation? Explained!', views: 280982 },
+  { id: '8cM49Omv7Gc', title: 'Magnet-ம் Matchstick-ம் ஒட்டுமா? | #shorts | LMES', views: 279666 },
+  { id: 'UoW5ExN8u3g', title: 'Why pen caps have holes? | Tamil | LMES | Pen Science', views: 276296 },
+  { id: '37P2xwzVUII', title: 'Why are LPG cylinders heated from the outside?', views: 275543 },
+  { id: 'wdcDCEQtE0U', title: 'The hidden sound in horror movies! | #shorts | Tamil | #LMES', views: 272379 },
+  { id: 'Zkt5xExhASA', title: 'Why do we get cold in summer? | #shorts | Tamil | LMES #coldinsummer', views: 271168 },
+  { id: 'uu_TekysH6Q', title: 'Rising a Liquid Using Alcohol | #Shorts | Tamil | LMES', views: 269878 },
+  { id: 'JljOJKXi2Nc', title: 'கோழி இறகு 🪶 கோடி ரூபாயா!!! 🤑💰 Hydrogen Fuel', views: 269481 },
+  { id: 'DWw8C7MAcW8', title: 'Why do we feel thirsty when we eat salty things? 🤔 #shorts | Tamil | #LMES', views: 266523 },
+  { id: 'QVFgy4aZEHc', title: 'The Hidden Risks of Tongue Splitting Tattoos', views: 257719 },
+  { id: 'kSHCShJST2M', title: 'Cow adhavdhu orru maadu 🐄 ! Cow milk vs maatu milk , which is better? A1 vs A2 milk', views: 255858 },
+  { id: 'FUSZF3Mhx2Y', title: 'Why babies shouldn\'t be given water for 6 months! | #shorts | Tamil | LMES #babyfacts', views: 252111 },
+  { id: 'xREW_0WRMpw', title: 'Why we should not swim after eating? #shorts | Tamil | LMES #swimming', views: 252006 },
+  { id: '0nbJT24Sffw', title: 'Why Does a Train\'s Sound Change as It Passes You? | Doppler Effect Explained! #dopplershift', views: 244716 },
+  { id: 'APmw5ZKcvKs', title: 'Why Sunita Williams Can\'t Walk After Returning to Earth?', views: 242504 },
+  { id: 'h4pRfF6fFfA', title: 'Is there any relation between EARTHWORM & PICKLE? மண்புழு - வுக்கும் ஊறுகாய் - க்கும் என்ன சம்மந்தம்', views: 240636 },
+  { id: '1ZYTIwZqMUk', title: 'No More Tears While Cutting Onions! 💧➡️😎', views: 237861 },
+  { id: '4TyTpwEAgJg', title: 'Singapore Saloon க்கு போனா தூக்கம் வருமா ??... #singaporesaloon #saloonprank #lmes #rjbalaji', views: 236996 },
+  { id: 'Ktl-Kiep6S4', title: 'Swimming Pool Death Mystery | How We Proved It Was Murder', views: 235903 },
+  { id: 'aD2k3rhXxAo', title: 'Can Oxygen be Produced Without Trees? | #shorts | Tamil | LMES', views: 233590 },
+  { id: 'rZHjuTyqK1k', title: 'WHY Batters Struggle to play Yorkers? #ipl', views: 232780 },
+  { id: 'BAew9RJMxZ4', title: 'Why Olympic Athletes Sleep On Cardboard Bed ? Paris 2024 Olympics #olympic', views: 232429 },
+  { id: 'jEyGjNHqNLs', title: 'Why does milk rise up on boiling, whereas water doesn\'t? | #shorts | Tamil | LMES #milk', views: 226558 },
+  { id: 'fhs8n5XC-U4', title: 'Magic Bending water using static electricity ⚡ science challenge', views: 226500 },
+  { id: 'sBlwO6l3rAU', title: 'How Does Salt Make Food Taste Better? | Tamil | LMES', views: 222528 },
+  { id: 'x4tUVbMXd6c', title: 'Can you Answer this Hardest Question?', views: 222314 },
+  { id: 'MgpXWeqYXos', title: 'What is Trigonometry?', views: 221858 },
+  { id: 'X_tRwmjgtWU', title: 'What is the real colour of the Sun ? ☀️சூரியனின் உண்மையான நிறம் என்ன? ☀️ #lmes #nature', views: 221126 },
+  { id: 'wDNT9koVShg', title: 'உயிரை காக்கும் பெட்டி 🚆😮 HOW This BOX on Railway Track Prevents ACCIDENTS  ?', views: 220952 },
+  { id: 'OvR0zNf4Nls', title: 'Bubbles that don\'t Pop | #Shorts | Tamil | LMES', views: 214222 },
+  { id: 'P3MAV1psxkk', title: 'தக்காளியை ஏன் Fridge-இல் வைக்க கூடாது ?|Tamil | LMES', views: 211351 },
+  { id: 'CBpkXihW4Io', title: 'Why do we get white hair?|LMES|Tamil', views: 211006 },
+  { id: '9cPKvJMUdyQ', title: 'This Birthday Candle Can Be Toxic – Here’s Why!', views: 209368 },
+  { id: 'npuJvDEFzYE', title: 'Why you should not see Solar Eclipse in naked eye l Tamil | LMES', views: 205291 },
+  { id: 'Ysz49sq9IMQ', title: 'Oil இல்லாம Fry பண்ண முடியுமா ?? 🤯💥 Maillard Reaction', views: 204475 },
+  { id: 'btapJb9Ypec', title: 'மண் பானை தண்ணி ஏன் JILLU-னு  இருக்கு ? Why Earthen Pot Water Feels So Cold ? Latent Heat', views: 202637 },
+  { id: 'Osm6n-RkJ-A', title: 'Why nowadays crackers are designed to produce less sound? | Tamil | LMES #shorts', views: 199257 },
+  { id: '5CnF5-t6goY', title: 'Why green light in Smartwatch ⌚? | LMES', views: 195993 },
+  { id: 'NFfrNDmNsaI', title: 'நெருப்புல தண்ணீ ஊத்திடாதீங்க!!! Danger⚠️! Science behind cooking! #cooking #explosion #fire | LMES', views: 195843 },
+  { id: 'FtRzyiA-3pM', title: 'Why there are holes in biscuits? | #shorts |Tamil | #LMES', views: 195583 },
+  { id: 'Wacvn1nJjJE', title: 'Man VS Wild : Fire Challenge 🔥😱', views: 188105 },
+  { id: 'tt70drtpO6E', title: 'WHY teeth appears yellow Tamil #shorts', views: 185469 },
+  { id: 'u25NjkC08cI', title: 'Why we feel hot after the rain? | #shorts | Tamil | #LMES', views: 184338 },
+  { id: 'xQ8XbsWdjTU', title: 'Is Mercury or Venus more hot in our solar system? | #shorts | Tamil | #LMES', views: 184059 },
+  { id: 'SYIRtD0BeSo', title: 'Why can\'t we use our nails on the touch screen? | #shorts | Tamil | LMES #nails #touchscreen', views: 175873 },
+  { id: 'yQfYIZYaQqw', title: 'Spraying Diesel in Candle! | #shorts | Tamil | LMES', views: 174953 },
+  { id: 'MmAIVFBuVrg', title: 'How Cyanide Kills in Seconds? | Aaryan Movie Science Explained', views: 174943 },
+  { id: 'DRXLqTnIPsM', title: 'GOAT movie De-aging technology', views: 170191 },
+  { id: 'G00VC2c64_c', title: '"Why Does Soda Make You Burp? The Science Behind Fizz!"', views: 169324 },
+  { id: 'QqyAytRs9gQ', title: 'Can We Eat Pink Cotton Candy ? ⚠️ பஞ்சு மிட்டாய் சாப்பிடலாமா கூடாதா? Rodamine B #science', views: 168820 },
+  { id: '_HrQfSpr9Ns', title: 'How they built a bridge in 31 hours ? Wayanad Landslides', views: 167036 },
+  { id: 'zb-MvN4UDvU', title: 'நாங்க ஏன் இப்ப shorts பண்றோம்? | #shorts | LMES', views: 166713 },
+  { id: 'PX2G0hq2IFQ', title: 'வியர்க்குரு பிரச்சனைக்கான Cure? Summer சோதனைகள் ☠️⚠️', views: 165999 },
+  { id: 'Hxi65pgizes', title: 'இந்த Cycle-அ ஓட்ட முடியுமா ? Let\'s Find Out! Open Challenge ! Counter Balance', views: 165799 },
+  { id: 'bGjNrX5DmRU', title: 'Why do we cry when we laugh? | #shorts | Tamil | LMES #tear #laughter', views: 163920 },
+  { id: 'qpNMQ4K7BDM', title: 'WHY are Dead Bugs always on their back ?|Tamil | LMES', views: 162968 },
+  { id: '2Uw0O_TboVU', title: 'Which Is The Strongest Muscle ? Can You Answer This ? Open Challenge', views: 162782 },
+  { id: '_jV8ausG2M4', title: 'Cake சாப்பிட்டா Cancer வருமா? ⚠️🍰Bengaluru Cake Issue⚠️⚠️', views: 162191 },
+  { id: 'zrdztb2vYKc', title: 'மின் மினி பூச்சி எப்படி மினுமினுக்குது?  How "Firefly" actually got the "Fire" 🔥 in it? Tamil | LMES', views: 158761 },
+  { id: 'M-uuagF1Qb4', title: 'Is Imane Khelif a Male ? Olympic  Boxing Controversy', views: 157993 },
+  { id: 'vChnA1FDhuo', title: 'தலைவலியை போக்குமா தைலம் ?😱❌', views: 154358 },
+  { id: 'GlY95ZeFIhQ', title: 'Why Does Welding Make Our Eyes Red?', views: 152727 },
+  { id: 'OoiJfbI6F_w', title: 'Why Do You Lose Balance When Hands Are in Your Pocket!', views: 151521 },
+  { id: 'ZZOAJA-LOsk', title: 'Why Do Your Knuckles Make That Cracking Sound? | #shorts | Tamil | LMES #knuckles', views: 151025 },
+  { id: 'gbjcgczeXwY', title: 'why WOUND heals slowly in Diabetic patients? நீரிழிவு / சர்க்கரை நோய்| LMES #shorts', views: 150957 },
+  { id: 'yl1iafuVX90', title: 'Why are biscuits stored in a glass jar #biscuit #glass', views: 147061 },
+  { id: 'FApO6LN64a0', title: 'வட்டத்திற்குள்⭕சுற்றும் எறும்புகள்🐜ஏன்?!🤔', views: 146698 },
+  { id: 'MPELhmIblys', title: 'Why does eyes take so long to adjust to light? | #shorts |Tamil | #LMES', views: 146423 },
+  { id: 'GoFDDIBB3T8', title: 'இரண்டாவது நிலா 🌚🌝Is Earth Getting a"Second Moon"? #minimoon', views: 145498 },
+  { id: 'WH9y2MahiEw', title: 'Will Paper Burn when wrapped around wood?|#shorts| LMES', views: 145040 },
+  { id: 'BgYaOuBCOLQ', title: 'Have you watched KGF? If not, before watching KGF watch this... | #shorts | Tamil | #LMES', views: 144224 },
+  { id: 'kydkQDoUEIU', title: 'Why don\'t cell phones work in Elevators? Faraday\'s Cage  #lmes #tamil #radiowave #tamilfacts', views: 143357 },
+  { id: 'DIYROrcBCz4', title: 'Don\'t miss this RAREST astronomical phenomenon Tonight (30/08/2023) #superbluemoon #lmes', views: 140393 },
+  { id: 't9L2ArXoJlQ', title: 'Try This Challenge… Your Brain Won’t Let You Win', views: 140005 },
+  { id: 'crDX2V-WBgo', title: 'Crude Oil-அ சாப்பிட முடியுமா ?Dark Side of Chennai Ennore Spill  Open Challenge #science #experiment', views: 137678 },
+  { id: 'cWcprxpQ8vo', title: 'Does Sun Really Burn? #lmes', views: 136666 },
+  { id: 'RRulV-KpmMU', title: 'What causes Muscle CRAMPS?  ஏன் தசைப்பிடிப்பு ஏற்படுகிறது? #lmes #gym #gymmotivation #workout', views: 135649 },
+  { id: 'lGt6VyYFMEs', title: 'We answered Superstar RAJINIKANTH\'s question | How does our Heart Works Continuously❓', views: 133539 },
+  { id: 'DHKch5gEQ_s', title: 'Why does food make our Mouth Water? |#shorts | Tamil | LMES', views: 132978 },
+  { id: '9eqt8_bGz4Y', title: 'Why doesn\'t Fevikwik Stick to its TUBE ?? | SHORTS | LMES', views: 132478 },
+  { id: 'ZcdJppOukeo', title: 'why do man holes catch fire?', views: 131694 },
+  { id: 'WeBbs_o1Jas', title: 'Can Your Brain Finish the Song? 🤯🎵', views: 130905 },
+  { id: 'w5FNL0crBQM', title: 'What type of touch screen was used in old android phones? | #shorts | Tamil | #LMES', views: 130300 },
+  { id: 'qcWRQq4GnNI', title: 'How did they find Ammonium Nitrate?', views: 130083 },
+  { id: 'qkv3T66-b1E', title: 'Which Course to Choose After 12th?', views: 129816 },
+  { id: 'BNCcM1LUqmA', title: 'Pineapple🍍நம்மல சாப்பிடுமா ??! ❌ 🤯', views: 129401 },
+  { id: 'wwTe22XlhMY', title: 'Petrol vs Thermocol', views: 128642 },
+  { id: 'obFWUpWnaoo', title: 'Do you know! Astronaut height increases after they return from space! #sunithawilliams #astronaut', views: 126936 },
+  { id: 'EYuXdPTwOqU', title: 'Explosive Pop Candy Science: Nostalgia Blast for 90s Kids! 🍬', views: 123152 },
+  { id: '9di9lL4qDjo', title: 'Bioluminescence in Chennai 💙The Secret Behind Glowing Waves', views: 122875 },
+  { id: 'ZTEKLjsHkug', title: 'Did You Know? There are 39 Trillion Bacteria in our Body! | #shorts | Tamil | LMES', views: 122223 },
+  { id: 'oBWBwHDmzbA', title: 'Mind-Blowing Vision Illusion 🔥', views: 120866 },
+  { id: 'YswxHgublG4', title: 'Water bending experiment with balloon for kids', views: 120504 },
+  { id: 'XHIlKeUzJsY', title: 'How do Magicians perform MAGIC using Science? .... #happynewyear2023  #LMES #lmesacademy', views: 120186 },
+  { id: '7ZYuu3m8tWA', title: 'Delhi Appalam\'s Secret Revealed - Public Opinion !', views: 117064 },
+  { id: 'FqBytEiGonw', title: 'Humans Can\'t Catch This ? ❌Money Challenge 💵💰', views: 116962 },
+  { id: 'VDc6Kihpxro', title: 'Bubble Gum VS Chewing Gum ! Boom Boom Boomer', views: 115569 },
+  { id: 'diSe3SJAryA', title: 'This 💧 is NOT the Real Shape Of Raindrop ! ❌', views: 114529 },
+  { id: 'M2YH6uKihQw', title: 'Big boss la "science"-ஆ', views: 113629 },
+  { id: 'AKPJiXLojBc', title: '5 ரூபாயில் வாந்தி, குமட்டலுக்கு இயற்கை தீர்வு | Remedy for motion sickness | Tamil | LMES', views: 113009 },
+  { id: 'x6WJKohg1ts', title: 'WHY OUR EYES WATER WHEN WE HAVE COLD ? சளி   பிடித்தால் ஏன் கண்களில் நீர் வடிகிறது?', views: 112994 },
+  { id: 'G_I-3Ao1Hkg', title: 'Second Hand Car Scam Ah? இத Check பண்ணிப்பாருங்க', views: 112803 },
+  { id: 'x0o8_tpSW4Y', title: 'Bottle ல🧴 Rocket 🚀 ஆ !! Experiment. #science | Newton\'s third law', views: 112594 },
+  { id: 'H0jmZqoSSIk', title: 'Why do we urinate more in winter? | Tamil | LMES', views: 112544 },
+  { id: '0uJwwdvKJRs', title: 'Why Do Onions Make You Cry? | #shorts | Tamil | LMES #onion', views: 111967 },
+  { id: 'jWGdwDULLMk', title: 'Why does my face turn red when I am angry? | LMES', views: 111060 },
+  { id: 'nlFgmD_Vt9Y', title: 'Pongal ஏன் பொங்குது ?❓ Tamil | LMES', views: 111039 },
+  { id: 'aGKx2WrAhJM', title: 'ஏன் bike Front Disc Brake பெருசா இருக்கு?', views: 111026 },
+  { id: 'VjR54uHb1yA', title: 'Why does every IPL team choose to bowl first? #ipl #cricket', views: 110581 },
+  { id: 'L_kgHDrxiI8', title: 'See a Hole in Your Hand? Your Brain Did This', views: 110317 },
+  { id: 'Hs4mKt6lBGo', title: 'Why do Mosquitoes FLY around your Head ? Tamil | LMES', views: 109524 },
+  { id: 'r2tIrBArvUc', title: 'Pen-அ தொட்டா SHOCK அடிக்குமா ?☠️ How Shock Pen Really Works ?', views: 108038 },
+  { id: 'gi0KLc40Vvk', title: 'இறந்தவர்களுக்கு உயிர் கொடுத்த AR Rahman ! LAL SAALAM #rajinikanth #BambaBakya  #ShahulHameed', views: 106900 },
+  { id: 'ARtycXTfY2g', title: 'Reason Behind Dhoni\'s Wicket! #CSK VS #RCB #ipl', views: 104275 },
+  { id: 'ZdQMYGNL1yo', title: 'Cool Drinks தாகம் தீர்க்குமா?Don\'t drink this ⚠️', views: 103059 },
+  { id: 'WJYbZv1mn4c', title: 'Which will fall first ? Paper vs Note. Bernoulli\'s Principle #lmes #tamil', views: 102369 },
+  { id: 'DxlaF7xvJR4', title: 'கண்ண மூடி சுட முடியுமா ? Why Olympic Shooters Wear This ?', views: 100049 },
+  { id: 'zv_7qTvJCE4', title: 'Stone + water = fire 🔥 ! How THIS Stone Catches Fire ?Tamil | LMES', views: 98884 },
+  { id: 'NVXYkt6HxZ8', title: 'This is how a thermal printer works! | LMES | TAMIL', views: 98388 },
+  { id: '9w0sN108wOc', title: 'Do Air Fried Food Cause Cancer ?🤯', views: 96485 },
+  { id: 'UM6Bh2ksWqI', title: 'The Rain Puzzle: WHY do only some clouds produce rain? | ஈரப்பதம்| LMES |', views: 95185 },
+  { id: 'b1R4QUHSH9U', title: 'RED Alert Again 🔴 ?How To Predict it ? 🤔  Stay Safe', views: 95127 },
+  { id: '-JQLQ9is22A', title: 'வாழ்கைல என்ன கிழிக்கபோரோம் 📰 ?! Cellulose Fibers', views: 94428 },
+  { id: 'JkN23TxlHNU', title: 'Lunch சாப்பிட்டதுமே ஏன் தூக்கம் வருது?  Why we feel sleepy after lunch ? #foodie', views: 93927 },
+  { id: 'z9osC69IEVs', title: 'Why Does Spicy Food Make YOU CRY? #TamilShorts', views: 93709 },
+  { id: 'ps9MHQGdcBo', title: 'RADIO | A Mystery Web Series | Promo | LMES', views: 93593 },
+  { id: 'SbxtpdqXi8Y', title: 'WHY Ants Travel in Straight Line | Tamil | LMES', views: 93257 },
+  { id: 'Z-cQvsqEOj0', title: 'Try This Science Challenge: Lift the Lemon! 🍋🧪', views: 91956 },
+  { id: 'VKApHRl5Ruw', title: 'Open Challenge - Fire Dance ஆடுமா ? Sound waves', views: 91945 },
+  { id: 'Of4aeV9BcCM', title: 'மீன் குழம்பு அடுத்த நாள் ஏன்  Taste\'ஆ இருக்கு?', views: 91833 },
+  { id: 'YyC3fjRnYm8', title: 'how paint removal liquid works', views: 90970 },
+  { id: 'BgYSZRRBWrk', title: 'Colour Changing கண்ணாடி ? Photo Chromatic Lens Magic ?', views: 89916 },
+  { id: 'rW36dyfWB8k', title: 'WHY ISRO Launched this Satellite 🛰️ #XPoSat #isro #lmes #tamil', views: 89519 },
+  { id: 'PkzLJRaOAsM', title: 'Briyani சாப்பிட்டால் Coma வா? Eat and Win 1 LAKH 🤑💰', views: 89022 },
+  { id: '6L13gXXFIo4', title: 'Why are rain clouds dark?', views: 88789 },
+  { id: '-TYCbhZ7qAw', title: 'What is happening in Ennore ? Oil Spill\'s new Twist and Turns ! #science #experiment', views: 87788 },
+  { id: 'fyUM_NQ3jd0', title: 'Why December 21st is the shortest day of 2021? | Tamil | LMES', views: 87498 },
+  { id: '5vj9J4QNiKA', title: 'Why Is This Egg Bouncing? 🤯', views: 86878 },
+  { id: 'FMwI0iWggPY', title: 'Spicy is not a taste it\'s just PAIN🥵 . காரம் ஒரு சுவையே இல்ல |Tamil | LMES #lmes', views: 85101 },
+  { id: 'rU9w3yYUpv8', title: 'Why MEMORY LOSS patients don\'t forget their language? Language vs Memory  |Tamil | LMES', views: 84310 },
+  { id: 'KanI-nbX02U', title: 'நடுராத்திரியில் ஏன் பசிக்கிறது ? Late Night Cravings', views: 83700 },
+  { id: 'Y6vnBK3VQW8', title: 'ஏன் மழைய centimetre-ல Measure பண்றாங்க? Why Rainfall Measured in cm ?', views: 82193 },
+  { id: 'OGoAMjeXvbU', title: 'Plane ✈️💨 புகை விடுவது ஏன் ?!', views: 80766 },
+  { id: 'a9prrKCCfEE', title: 'Battery இல்லாம பொம்மை ஓடுமா?How to Run a Toy without a Battery 🔋 ❌', views: 79121 },
+  { id: 'tvfVuUeqesg', title: 'Science\'ல் சொதப்பிய COBRA. Can we really store liquid nitrogen? #lmes #cobra', views: 77917 },
+  { id: 'TBY-M853HZA', title: 'Why do TRAINS 🚉 make "tchjk tchjk tchjk tchjk" Sound ? #train #tamilshorts', views: 77020 },
+  { id: '9XHmUY8fADA', title: 'Action Reaction Series | Releasing Today @7pm - Stay Tuned | Tamil | #LMES', views: 76978 },
+  { id: 'eUEv80RMPqU', title: 'Why We Should NOT Add Coconut to Food Items ? 🤔', views: 76845 },
+  { id: 'Hur4_PCAl2o', title: 'TIK TIK TIK Scientific Mistakes | SPOOF | LMES', views: 75752 },
+  { id: '-sBB8fyS8Lc', title: 'Scientific mistakes in COBRA ! Machine learning', views: 73961 },
+  { id: '_gbeVPopAHA', title: 'This Magic Metal - Aluminium Not Rusting?🤯😱', views: 72914 },
+  { id: 'd_w25drnaS0', title: 'Decoding Iyarkai Movie WINE making scene #shorts #lmes', views: 72814 },
+  { id: '5NAUzGZsNNc', title: 'Magic Floating Ball 🏀 ! மிதக்கும் மந்திர பந்து ✨ Scam OR Science?', views: 72223 },
+  { id: '3XQmeiGsriU', title: 'Why Velcro Sticks So Strong?', views: 71759 },
+  { id: 'zfYnFh9B1rQ', title: 'How Odomos protects you from Mosquitoes ? கொசுவை உண்மையாகவே கொல்லுமா??', views: 70709 },
+  { id: 'x_zxkdPuKXY', title: 'How a banned 🚫 method saved uttarakhand workers? Rat Hole Mining Tamil | #lmes', views: 70280 },
+  { id: '9ELvUv6Z1kk', title: 'How these Birds use Magnets to Navigate ? #shorts', views: 69982 },
+  { id: 'eH-pXh7csmM', title: 'Why don\'t SPIDER stick to their Webs 🕸️? சிலந்தி | LMES #Tamilshorts', views: 69552 },
+  { id: 'thp49SPxF-M', title: 'How ISRO is Going to save Our Life? EOS-08 Mission 🚀 வயனாடை காப்பாத்துமா ISRO?', views: 69516 },
+  { id: 'TvnD6zaDdGA', title: 'ஓடும் போது side ல ஏன் வலிக்குது? Pain while Running', views: 68665 },
+  { id: 'OvNyQxV-C8g', title: 'Chennai-ல Blue Moon ஆ? 🌚', views: 68044 },
+  { id: '5u-QclliRSY', title: 'how to take petrol from bike? petrol trick | LMES #petrol #bike', views: 67868 },
+  { id: 'rUmSnFFqt0I', title: 'APPLE a day keeps the doctor away x FRUIT NINJA | LMES', views: 67506 },
+  { id: 'RTR_Mx89oTY', title: 'This is how road roller works', views: 67314 },
+  { id: '8CA1wcUVEeM', title: 'Can Electricity Really Heal Wounds ?⚡ Current வைத்தீயமா?', views: 65254 },
+  { id: 'e_HvdTfCm1o', title: 'How Olympic shooters use Air Pistols or Rifles ? Paris 2024 Olympics #olympic', views: 64444 },
+  { id: 'oVqgqejVb7o', title: 'Lunch அப்போ Tiffin Box\' அ திறக்க ஏன் கஷ்டமா இருக்கு ?|', views: 64224 },
+  { id: 'LUHVs8HQbbo', title: 'Reason behind Ennore gas leak #lmes #ammonia #gasleak #ennore', views: 64174 },
+  { id: 'hpbuHoefe8M', title: 'Marina Beach ஏன் Blue 🔵 colour\'ல glow ஆகுது? Why does the marina beach glow ? #bioluminescence', views: 63845 },
+  { id: 'fQYjyzYoqyU', title: 'Flight எவ்வளவு height\'ல பறக்குது\'னு Pilot எப்பிடி கண்டு புடிக்கிறாங்க? Science behind Flight', views: 63660 },
+  { id: '3_VrhLzyNHo', title: 'Why is Candle flame is Yellow 🟡 while LPG has 🔵 ?', views: 62936 },
+  { id: 'saUJBF4a99g', title: 'Jeff Bezos new rocket launch', views: 62781 },
+  { id: 'AroBKRjZyQs', title: 'Hidden detail in Leo🦁 The scar formation #leo #thalapathy #scar #lmes #harolddas #lokeshkanagaraj', views: 62413 },
+  { id: 'RmUxmJxQ1Zw', title: 'நண்டு🦀 Color மாறுமா ??!', views: 61148 },
+  { id: 'O4r7_jPIDn4', title: 'Adutha illaku - Snippets | LMES', views: 60889 },
+  { id: 'HeU_pgsKy6s', title: 'How to make PAPER from Sugarcane Waste❓❓| SHORTS | LMES', views: 60758 },
+  { id: 'QcSdWYPHY6A', title: 'Secret Behind Long Lasting fragrance ? Scam or Science - Fabric conditioner', views: 59708 },
+  { id: 'E4BydvXLFAc', title: 'Why Does a Car Windshield Have Small Black Dots? கார் கண்ணாடியில் ஏன் சிறிய கருப்பு புள்ளிகள் உள்ளன?', views: 59530 },
+  { id: '9pItVa8hm4M', title: 'Why most people get this wrong? Sound speed challenge #streetscience', views: 58374 },
+  { id: 'Aa7IwHelyo0', title: 'A RARE Planetary event happening right NOW | shorts | LMES', views: 55736 },
+  { id: 'CCqK20C4Q3A', title: 'Do not turn on Airplane Mode ✈️  when you fly ! ⚠️', views: 55316 },
+  { id: 'AF2GQxLnY1w', title: 'அப்படி என்னதான் இருக்கு இந்த banner-ல? | LMES', views: 55191 },
+  { id: 'h0PQJNYlXUE', title: 'What is The Real Colour Of Sea Water ?  ❌ 🔵  கடல் தண்ணீர் Colour என்ன ?', views: 54786 },
+  { id: '2I8gOyjnywA', title: 'தூக்கத்துல உங்களுக்கு இப்டி நடந்து இருக்கா? Hypnic Jerk', views: 54526 },
+  { id: 'N6je-XDqneo', title: 'Bottle Rocket Challenge 🚀', views: 53885 },
+  { id: 'P6hl2yt9BR4', title: 'Does artificial turf create cancer?', views: 53669 },
+  { id: 'KawIAgFOB2M', title: 'Why Can\'t We Walk Straight Without Our Ears ?', views: 53544 },
+  { id: '-hr64kOjkeI', title: 'where do we use matrix? #maths #matrix', views: 53474 },
+  { id: 'NIws4fdYdmQ', title: 'Why lightning is zigzag? மின்னல் என்போமே ஏன் zigzag \'ஆ போகுது??🤔 Tamil | LMES', views: 53066 },
+  { id: 'FkcYmMRXGSY', title: 'Much needed one. Great work by Chennai Traffic Police.', views: 53014 },
+  { id: 'AhGlkzk-yCM', title: 'Why is Sugarcane harvested in Pongal?', views: 52716 },
+  { id: 'DXMRt0QHk40', title: 'space\'ல என்ன Climate? 🤔#spacescience', views: 52015 },
+  { id: 'JTljTcmJfCE', title: 'WHY we should not Rub our Eyes ? கண்ண போட்டு தேய்க்காதிங்க..#lmes #tamil #vip #dhanush', views: 51801 },
+  { id: 'm-LrEgHXNTQ', title: 'What do players eat before a match? #ipl #cricket #dhoni', views: 51214 },
+  { id: 'e1Ryp93uBuY', title: 'How does a snake find its prey ?', views: 49302 },
+  { id: '_iv638j3MjE', title: 'Heart இல்லாத உயிரினம் எது ? 💔', views: 47611 },
+  { id: '6i8Eer-Jg80', title: 'Can\'ல பெட்ரோல் petrol  வாங்காதீங்க - ஆபத்து!!!', views: 47200 },
+  { id: 'NTM60Ke9r_k', title: 'This " Vomit "can make you super rich  !  ஏன் இந்த வாந்திக்கு விலை அதிகமா இருக்கு?  #shorts #rich', views: 46291 },
+  { id: 'gj5HrjjR1-4', title: 'Nitrogen VS Regular air. which is best?', views: 45394 },
+  { id: 'o670eTrpR_U', title: 'பூனைக்கு 🐱RED Colour தெரியாதா ?? Why Cats Behave weird when it sees a laser light ?', views: 44790 },
+  { id: 'y-FWJzXfqmw', title: 'இது பக்கத்துல போய்டாதீங்க!!!!!! Whale vs Bomb ! ⚠️ Danger ⚠️ #shorts #LMES', views: 44786 },
+  { id: 'rt4gPdV3WzI', title: 'Crazy - Bottle Rocket 🚀 Experiment !', views: 44678 },
+  { id: 'ouAzCuz-rY8', title: 'How Breast Cancer killed 76,000 Women in India? #embraceequity  #shorts', views: 43955 },
+  { id: 'FzXWxlKgwVs', title: 'Secret found || இதுதான் இரகசியமா.... #shorts #lmes', views: 43750 },
+  { id: 'MM6SDE7SV_k', title: 'From Bacteria to Humans: The 2 Billion Year Story', views: 43698 },
+  { id: 'lfc8Bx18WuY', title: 'பச்சோந்தி உண்மையிலேயே இதுக்காகத்தான் colour\'ஆ மாத்துதா ? Why cameleons change colour ? # lmes', views: 43203 },
+  { id: 'jih1n7MrVYA', title: 'Why  siren\'s 🚨 have RED and BLUE light?', views: 43065 },
+  { id: '7fdluigLldU', title: 'Twinkle Twinkle Little Star 🌟 ✨ Why Star Twinkle ? ⭐ Atmospheric Refraction', views: 42765 },
+  { id: 'o2J3sg9PPy8', title: 'DIY Science summer workshop for kids | Tamil | LMES', views: 40754 },
+  { id: 'hH7KwlCUi5I', title: 'Don\'t Try This At Home. Lithium Battery Explosion #lmes #science #cobra #actionreaction', views: 40003 },
+  { id: '23HeazWr1u8', title: 'The bottle cap experiment did not work? try this', views: 39171 },
+  { id: '9klUOtfHMuA', title: 'Are you looking for a JOB??....LMES is hiring', views: 38350 },
+  { id: '6DH5FRSDT1E', title: 'Truth about ISRO scientists salary!', views: 38199 },
+  { id: '0v1N3gaNxI8', title: 'What is meant by 24 Karat gold?', views: 35965 },
+  { id: 'Mkt6MNT8mt0', title: '24+Hours Live Career Guidance Program for Class 9 -12 Students | June 18 - 5:00pm Onwards #lmes #pmc', views: 32429 },
+  { id: 'TW0-NZT0HCY', title: 'How do two people have the same birthday', views: 31333 },
+  { id: 'omGlRHt8Zb0', title: 'Cast Your Votes for Blacksheep Digital Awards 2025!', views: 30366 },
+  { id: 'xNj47A_qpQw', title: 'is 35,000 crores air defence system worth it?', views: 28405 },
+  { id: 'Hw83OQpunCE', title: 'For 12th Students', views: 28120 },
+  { id: 'XUNBndnb4_I', title: 'Why do we get Goosebumps while watching Cricket?', views: 27779 },
+  { id: 'ITwdg70qL0A', title: 'Decoding PATHAAN Movie Stunt #decoding', views: 26976 },
+  { id: 'Tf8p4cU2liM', title: 'Are You a 12th Standard Student?', views: 26974 },
+  { id: '61ygFX0D39s', title: '24+ hours Live Career Guidance Program for Class 9 to 12 Students, June 18, 5:00 p.m Onwards.', views: 26617 },
+  { id: 'ZguGx-yiizw', title: 'Is it possible to win DREAM 11?', views: 26114 },
+  { id: 'Jc9pHdTSh0Q', title: 'The science behind smell and memory', views: 24485 },
+  { id: 'dmJ7fyszpbE', title: 'Join the TechX Conference in Chennai! A unique chance to learn from AI and Cloud industry experts', views: 17795 },
+  { id: 'l3v23dlQ8xY', title: 'Looking for a job?  Apply Now  - https://tally.so/r/wa2Qvy #lmes #tamil #marinabeach', views: 17691 },
+  { id: 'DFLhIbSS8TE', title: 'You Can Actually See Inside Your Eye! 🤯', views: 13606 },
+  { id: 'wderWRm1cxE', title: 'Free Career Guidance Program for Class 9 to 12 Students | @PickMyCareer', views: 12454 },
+];
+
+SHORTS.sort((a,b) => b.views - a.views);
+
+function formatViews(n){
+  if(n >= 1000000) return (n/1000000).toFixed(1).replace(/\.0$/,'') + 'M views';
+  if(n >= 1000) return (n/1000).toFixed(1).replace(/\.0$/,'') + 'K views';
+  return n + ' views';
+}
+
+const gridEl = document.getElementById('grid');
+
+function renderGrid(){
+  gridEl.innerHTML = SHORTS.map((v, i) => {
+    const thumb = `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`;
+    return `
+    <a class="card" href="https://www.youtube.com/shorts/${v.id}" target="_blank">
+      <div class="thumb">
+        <img src="${thumb}" alt="${v.title}">
+      </div>
+      <div class="card-body">
+        <span class="card-tag">Short</span>
+        <div class="card-title">${v.title}</div>
+        <div class="card-meta"><span class="rank">#${i+1}</span><span>${formatViews(v.views)}</span></div>
+      </div>
+    </a>`;
+  }).join('');
+}
+
+renderGrid();
+</script>
+
+</body>
+</html>
